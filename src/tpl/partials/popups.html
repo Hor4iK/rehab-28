@@ -1,0 +1,47 @@
+<button id="toTop" class="btn_top active">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="none"><path stroke="#c2185b" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m.8 7.4 7-6.6m0 0 7 6.6M7.8.8v16"/></svg>
+  </div>
+</button>
+
+<div class="popup" data-target="popup-consult">
+  <div class="popup__body">
+    <div class="popup__content">
+      <button class="close-popup"></button>
+
+      <p class="popup__title main-title">
+        Бесплатная консультация специалиста — <span><br>это первый шаг!</span>
+      </p>
+      <p class="popup__subtitle">
+        Оставьте заявку, и наш эксперт свяжется с вами, чтобы помочь подобрать решение и обсудить вашу ситуацию
+      </p>
+
+      <forms class="popup__form">
+        <input type="tel" class="input" name="params[phone][]" placeholder="+7(999) 999-99-99" required="">
+        <button type="submit" class="btn btn_consult popup__button popup-btn btn_accent">
+          <span>записаться</span>
+          <div class="point-mark"><span></span><span></span></div>
+        </button>
+        <label class="checkbox">
+          <input type="checkbox" checked="checked">
+          <span class="checkbox-mark"></span>
+          <span>Нажимая кнопку я соглашаюсь с <a href="#">политикой конфединциальности</a> и <a
+              href="#">пользовательским соглашением</a></span>
+        </label>
+      </forms>
+      <span class="popup__separation"></span>
+      <div class="popup__bottom">
+        <div class="popup__bottom-column">
+          <p>Или свяжитесь с нами самостоятельно</p>
+          <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+        </div>
+        <div class="popup__bottom-column">
+          <a href="#" target="_blank" class="point-mark btn_social point-tg">
+          </a>
+          <a href="+799999999999" class="point-mark btn_social point-tel">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

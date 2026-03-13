@@ -1,0 +1,264 @@
+.footer {
+  background-color: $primary-dark-color;
+  color: #fff;
+  padding-block: 160px 40px;
+  padding-inline: $padding;
+  font-size: 16px;
+
+  &__logo {
+    margin-block-end: 94px;
+    justify-content: start;
+    width: fit-content;
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+    padding: 20px;
+    border: 1px solid $white-opacity-5-color;
+    background-color: $white-opacity-5-color;
+    border-radius: 20px;
+    font-size: inherit;
+    line-height: 1.2;
+
+    @media screen and (width<=900px) {
+      padding: 16px;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-block-end: 60px;
+  }
+
+  &_contacts {
+    max-width: 412px;
+
+    .footer__list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer__item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    &__title {
+      font-size: 14px;
+      color: $white-opacity-40-color;
+    }
+
+    margin-block-end: 40px;
+  }
+
+  &__payment {
+    margin-block-end: 40px;
+    max-width: 412px;
+
+    p {
+      line-height: 1;
+      margin-block-end: 16px;
+    }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      li {
+        padding: 12px 16px;
+        border-radius: 10px;
+        border: 1px solid $white-opacity-10-color;
+        background-color: $white-opacity-5-color;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  }
+
+  &__secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    a {
+      text-decoration: underline;
+      font-size: 14px;
+      color: $white-opacity-40-color;
+    }
+
+    & a:hover {
+      color: $white-opacity-80-color;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    margin-block-end: 80px;
+
+    .point-mark {
+      background-color: transparent;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  &__btn {
+    padding: 25px 40px;
+    width: fit-content;
+
+    &_tg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  &__title {
+    display: block;
+    margin-block-end: 32px;
+    font-size: 20px;
+    line-height: 1;
+    color: $white-opacity-40-color;
+
+    @media screen and (width<=900px) {
+      font-size: 16px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__link,
+  .footer__phone {
+    font-weight: 400;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .footer_services,
+  .footer_about,
+  .footer_articles {
+    max-width: 230px;
+  }
+
+  &__caption {
+    font-weight: 600;
+  }
+
+  @media screen and (width<=1166px) {
+    padding-block: 100px 20px;
+
+    .content {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+    
+    .footer__container {
+      display: contents;
+    }
+
+    .footer__logo {
+      margin-block-end: 0;
+      order: -1;
+    }
+
+    .footer__btns {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-block-end: 40px;
+      order: -2;
+    }
+
+    .footer_contacts {
+      order: -3;
+    }
+
+    .footer__payment {
+      order: -4;
+    }
+
+    .footer__links {
+      flex-wrap: wrap;
+      order: -6;
+    }
+
+    .footer__secondary {
+      order: -7;
+    }
+
+    .footer__btn {
+      padding-block: 20px;
+    }
+  }
+
+  @media screen and (width<=900px) {
+    font-size: 12px;
+
+    .footer__description {
+      padding: 16px;
+    }
+
+    .footer__btns,
+    .footer_contacts,
+    .footer__payment {
+      margin-block-end: 0;
+    }
+
+    .content {
+      margin-block-end: 24px;
+    }
+
+    .footer__title {
+      margin-block-end: 20px;
+    }
+
+    .footer__list {
+      gap: 16px;
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (width<=600px) {
+    .footer__btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .footer__btns>div:first-child {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .footer__btns {
+      align-items: start;
+    }
+  }
+}

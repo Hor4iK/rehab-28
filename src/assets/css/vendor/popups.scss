@@ -1,0 +1,134 @@
+.popup {
+  height: 100dvh;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 100%;
+  z-index: 1000;
+  transition: opacity 0.4s ease;
+  overflow-y: auto;
+  background: rgba(0, 8, 84, 0.27);
+  display: none;
+}
+
+.popup.active {
+  display: block;
+}
+
+.popup__body {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 15px 20px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.popup.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup__content {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 30px;
+  position: relative;
+  padding: 40px 50px 50px;
+  scale: 0.3;
+  transition: scale 0.4s ease;
+  background-color: #fff;
+  box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.1);
+
+  @media screen and (width<=800px) {
+    border-radius: 24px;
+    padding: 20px;
+  }
+}
+
+.popup.open .popup__content {
+  scale: 1;
+}
+
+.close-popup {
+  position: absolute;
+  width: 25px;
+  aspect-ratio: 1/1;
+  top: 30px;
+  right: 30px;
+  transition: transform 300ms ease-out;
+
+  &:hover {
+    transform: rotateZ(-90deg) scale(1.14);
+  }
+
+  &::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    display: block;
+    background-color: #133a6633;
+    rotate: 45deg;
+  }
+
+  &::after {
+    content: "";
+    width: 30px;
+    height: 1px;
+    display: block;
+    background-color: #133a6633;
+    rotate: -45deg;
+  }
+
+  @media screen and (width<=800px) {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.popup__title {
+  max-width: 700px;
+}
+
+.popup__subtitle {
+  max-width: 700px;
+  opacity: 0.65;
+}
+
+.popup__button {
+  padding: 10px;
+  font-size: 20px;
+
+  .point-mark {
+    width: 60px;
+  }
+
+  @media screen and (width<=800px) {
+    padding: 5px;
+
+    .point-mark {
+      width: 50px;
+    }
+  }
+}
+
+.popup__form {
+  margin-block: 40px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  input {
+    background-color: #fff;
+  }
+
+  @media screen and (width<=800px) {
+    margin-block: 30px;
+    grid-template-columns: 1fr;
+  }
+}

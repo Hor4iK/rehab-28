@@ -1,0 +1,80 @@
+@mixin container($margin-bl: 0) {
+  max-width: calc(1560px - $padding * 2);
+  margin: 0 auto;
+  @if $margin-bl != 0 {
+    @if $margin-bl == "block" {
+      margin-block: clamp(3.75rem, -10.8333rem + 33.3333vw, 10rem);
+    } @else if $margin-bl == "top" {
+      margin-block-start: clamp(3.75rem, -10.8333rem + 33.3333vw, 10rem);
+    } @else if $margin-bl == "bottom" {
+      margin-block-end: clamp(3.75rem, -10.8333rem + 33.3333vw, 10rem);
+    } @else {
+      margin-block: $margin-bl;
+    }
+  }
+}
+
+@mixin inline-gradient {
+  background: $gradient;
+}
+
+.container {
+  @include container;
+}
+
+.container_bl {
+  @include container("block");
+}
+
+.container_t {
+  @include container("top");
+}
+
+.container_b {
+  @include container("bottom");
+}
+
+@mixin sections($type: "", $padding: 0, $border-radius: 0) {
+  @if $border-radius {
+    @if $border-radius == 30px {
+      border-radius: clamp(1.5625rem, 0.8333rem + 1.6667vw, 1.875rem);
+    } @else {
+      border-radius: $border-radius;
+    }
+  }
+
+  @if $type {
+    @if $type == "red" {
+      background: $gradient-red;
+      color: #fff;
+    } @else if $type == "base" {
+      background: $gradient;
+      color: #fff;
+    } @else if $type == "white" {
+      background-color: #fff;
+      color: $black-secondary-color;
+    } @else if $type == "yellow" {
+      background: $gradient-yellow;
+      color: $black-color;
+      position: relative;
+    }
+  }
+
+  @if $padding == "base" {
+    padding: clamp(1.5rem, -1.375rem + 6.5714vw, 4.375rem)
+      clamp(0.875rem, -4.5rem + 12.2857vw, 6.25rem)
+      clamp(1.5rem, -2rem + 8vw, 5rem);
+  } @else {
+    padding: $padding;
+  }
+}
+
+@mixin point-mark-psevdo {
+  content: "";
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 18px;
+  aspect-ratio: 1/1;
+  display: block;
+}
