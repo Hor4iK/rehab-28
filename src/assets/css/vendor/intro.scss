@@ -1,0 +1,123 @@
+.intro {
+  padding-inline: $padding;
+  padding-block-start: clamp(2.5rem, -10.9167rem + 30.6667vw, 8.25rem);
+  padding-block-end: clamp(2.5rem, -3.3333rem + 13.3333vw, 5rem);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      display: block;
+      background: url(../img/sections/intro.webp) no-repeat;
+      background-size: 100%;
+      background-position: top left;
+      max-width: 1300px;
+      aspect-ratio: 1/1;
+      width: 100%;
+      position: absolute;
+      right: -380px;
+      bottom: -710px;
+      z-index: -1;
+
+      @media screen and (width<=1050px) {
+        content: none;
+      }
+
+      @media screen and (width<=700px) {
+        content: '';
+        max-width: 190px;
+        background-position: bottom left;
+        background-size: 100%;
+        bottom: 39%;
+        right: 28px;
+        background-image: url(../img/sections/intro-mini.webp);
+      }
+    }
+  }
+
+  &__top {
+    max-width: 760px;
+
+    & > div:first-child {
+      margin-block-end: clamp(1.5rem, -3.75rem + 12vw, 3.75rem);
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-block-end: 132px;
+    gap: 16px;
+
+    @media screen and (width<=900px) {
+      flex-direction: column;
+      gap: 8px;
+      margin-block-end: 138px;
+    }
+  }
+
+  &__btn {
+    padding: 25px 40px;
+
+    @media screen and (width<=900px) {
+      width: 100%;
+      padding: 20px;
+      justify-content: center;
+    }
+  }
+
+  &__desc {
+    font-size: clamp(0.875rem, 0rem + 2vw, 1.25rem);
+    line-height: 1.2;
+    max-width: 600px;
+  }
+
+  &__advantages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    & > div {
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      color: $black-color;
+
+      @media screen and (width<=900px) {
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 15px;
+        gap: 12px;
+      }
+    }
+
+    .point-mark {
+      flex-shrink: 0;
+      background-color: $primary-light-100-color;
+       svg {
+        max-width: 24px;
+       }
+    }
+
+    @media screen and (width<=1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (width<=700px) {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+}

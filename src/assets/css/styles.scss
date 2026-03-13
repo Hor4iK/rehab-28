@@ -67,11 +67,19 @@ body {
   }
 }
 
+.main-title {
+  font-size: clamp(2.25rem, -5.625rem + 18vw, 5.625rem);
+  font-family: "Grotesque", sans-serif;
+  max-width: 880px;
+  margin-block-end: clamp(1.5rem, -2rem + 8vw, 3rem);
+  line-height: 1;
+  font-weight: 600;
+}
+
 .section-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 60px;
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
@@ -81,13 +89,12 @@ body {
 
   h2 {
     font-weight: inherit;
-    font-size: inherit;
+    font-size: clamp(2rem, -2.0833rem + 9.3333vw, 3.75rem);
     color: inherit;
     line-height: inherit;
   }
 
   @media (max-width: 900px) {
-    font-size: 32px;
     margin-block-end: 32px;
   }
 
@@ -100,6 +107,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    font-size: clamp(0.75rem, 0.1667rem + 1.3333vw, 1rem);
 
     &::before {
       content: "";
@@ -327,7 +335,7 @@ a.point-mark:hover {
   font-size: 14px;
   line-height: 1.2;
   position: relative;
-  transition: scale 300ms, outline 300ms;
+  transition: 300ms;
 
   &_primary {
     background-color: $primary-color;
@@ -341,6 +349,13 @@ a.point-mark:hover {
   &_light {
     background-color: $white-opacity-10-color;
     border: 1px solid $white-opacity-10-color;
+  }
+
+  &_tg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 
   &_point {
@@ -368,6 +383,7 @@ a.point-mark:hover {
 }
 
 @import "vendor/header";
+@import "vendor/intro";
 @import "vendor/footer";
 
 @import "vendor/popups.scss";
