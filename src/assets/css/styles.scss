@@ -125,7 +125,7 @@ html {
   position: fixed;
   bottom: 40px;
   right: 40px;
-  z-index: 99;
+  z-index: 5;
   cursor: pointer;
   transition:
     opacity 0.4s,
@@ -154,11 +154,13 @@ html {
   }
 
   @media (max-width: 900px) {
-    left: 10px;
-    bottom: 10px;
-    width: 52px;
-    height: 52px;
+    right: 20px;
+    bottom: 0;
     border-radius: 15px;
+
+    & > div {
+      width: 52px;
+    }
   }
 
   &.active {
@@ -276,9 +278,17 @@ html {
     @include point-mark-psevdo;
     background-image: url(../img/icons/clock.svg);
   }
+  &.point-clock-red::before {
+    @include point-mark-psevdo;
+    background-image: url(../img/icons/clock-red.svg);
+  }
   &.point-liz::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/liz.svg);
+  }
+  &.point-liz-red::before {
+    @include point-mark-psevdo;
+    background-image: url(../img/icons/liz-red.svg);
   }
   &.point-vk::before {
     @include point-mark-psevdo;
@@ -299,6 +309,10 @@ html {
   &.point-map::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/map.svg);
+  }
+  &.point-map-red::before {
+    @include point-mark-psevdo;
+    background-image: url(../img/icons/map-red.svg);
   }
 }
 
@@ -354,7 +368,6 @@ a.point-mark:hover {
 }
 
 @import "vendor/header";
-
 @import "vendor/footer";
 
 @import "vendor/popups.scss";

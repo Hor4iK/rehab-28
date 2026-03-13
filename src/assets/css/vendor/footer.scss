@@ -38,6 +38,7 @@
 
   &_contacts {
     max-width: 412px;
+    margin-block-end: 40px;
 
     .footer__list {
       display: flex;
@@ -55,8 +56,6 @@
       font-size: 14px;
       color: $white-opacity-40-color;
     }
-
-    margin-block-end: 40px;
   }
 
   &__payment {

@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const main = document.querySelector('.page');
       window.addEventListener('scroll', e => {
         //if (window.innerWidth > 1570) {
-          if (window.scrollY + 115 > headerAllHeight) {
+          if (window.scrollY + 115 > headerAllHeight && !headerAll.classList.contains('active')) {
             if (!headerAll.classList.contains('fixed')) {
               headerAll.classList.add('fixed');
             }
