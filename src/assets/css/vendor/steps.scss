@@ -1,0 +1,126 @@
+.steps {
+  padding-inline: $padding;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 260px);
+    gap: 20px;
+    counter-reset: steps;
+
+    &>div {
+      background-color: #fff;
+      border: 1px solid $secondary-light-300-color;
+      border-radius: 30px;
+      position: relative;
+      counter-increment: steps;
+      padding: 40px;
+
+      &::after {
+        content: "0" counter(steps);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $secondary-color;
+        border-radius: 20px;
+        width: 64px;
+        aspect-ratio: 1/1;
+        color: $black-color;
+        font-size: clamp(1.5rem, 0.3333rem + 2.6667vw, 2rem);
+        font-family: "Grotesque", sans-serif;
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        margin-block-start: 40px;
+
+        @media screen and (width<=900px) {
+          width: 44px;
+          border-radius: 15px;
+        }
+      }
+
+      .steps__title {
+        color: $primary-color;
+        font-weight: 600;
+        font-size: clamp(1.5rem, 0.3333rem + 2.6667vw, 2rem);
+        margin-block-end: 20px;
+        max-width: 85%;
+
+        @media screen and (width<=900px) {
+          margin-block-end: 16px;
+        }
+      }
+
+      .steps__desc {
+        max-width: 80%;
+        color: $black-secondary-color;
+      }
+
+      &:last-child {
+        background: $gradient-red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          background-image: url(../img/sections/cteps-clever.webp);
+          background-position: right center;
+          background-size: cover;
+          width: 371px;
+          height: 371px;
+          top: -50px;
+          right: -70%;
+          transform: translateX(-50%);
+        }
+
+        &::after {
+          content: none;
+        }
+
+        .steps__title {
+          color: #fff;
+          font-size: clamp(1.125rem, 0.25rem + 2vw, 1.5rem);
+          line-height: 1.1;
+          max-width: none;
+        }
+      }
+
+      @media screen and (width<=1000px) {
+        min-height: 182px;
+        padding: 24px;
+        border-radius: 15px;
+      }
+    }
+
+    @media screen and (width<=1400px) {
+      gap: 8px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 260px);
+    }
+
+    @media screen and (width<=900px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 180px);
+
+      &> div:last-child::before {
+        width: 228px;
+        height: 228px;
+        top: -20px;
+        right: -60px;
+        transform: none;
+      }
+    }
+  }
+
+  &__button {
+    border-radius: 8px;
+    line-height: 1;
+
+    @media screen and (width<=900px) {
+      padding: 15px;
+    }
+  }
+}

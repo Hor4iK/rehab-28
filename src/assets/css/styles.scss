@@ -342,7 +342,7 @@ a.point-mark:hover {
   font-size: 14px;
   line-height: 1.2;
   position: relative;
-  transition: 300ms;
+  transition: 300ms ease-out;
 
   &_primary {
     background-color: $primary-color;
@@ -351,6 +351,11 @@ a.point-mark:hover {
     &:hover {
       background-color: #ac1156;
     }
+  }
+
+  &_white {
+    background-color: #fff;
+    color: $black-color;
   }
 
   &_light {
@@ -392,6 +397,8 @@ a.point-mark:hover {
 @import "vendor/header";
 @import "vendor/intro";
 @import "vendor/digits";
-@import "vendor/footer";
+@import "vendor/steps";
 
+@import "vendor/footer";
+@import "vendor/animate";
 @import "vendor/popups.scss";
