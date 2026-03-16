@@ -1,0 +1,25 @@
+.condition {
+  padding-inline: $padding;
+
+  &__inner {
+
+  }
+
+  &__item {
+    background-color: #fff;
+    border-radius: 30px;
+  }
+
+  &__pic {
+    width: 260px;
+    height: 160px;
+    overflow: hidden;
+    display: block;
+    border: 10px solid $secondary-color;
+
+    img {
+      object-fit: cover;
+      object-position: center center;
+    }
+  } 
+}

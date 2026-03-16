@@ -58,6 +58,7 @@
           left: 50%;
           transform: translateX(-50%);
           max-width: 100%;
+          z-index: 2;
         }
 
         &::after {
@@ -67,6 +68,11 @@
           background: url(../img/sections/digits-bg.webp) no-repeat;
           background-position: 44% bottom;
           background-size: cover;
+
+          @media screen and (width<=1000px) {
+            background-size: 120%;
+            background-position: -26px;
+          }
         }
       }
 
