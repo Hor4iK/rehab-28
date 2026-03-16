@@ -469,7 +469,6 @@
     .menu__item> :is(.menu__link, .menu__item__button) {
       display: flex;
       width: 100%;
-      padding-block: 22px 16px;
     }
 
     .menu__subnav.hide-item__height {
@@ -565,7 +564,7 @@
     right: 12px;
   }
 
-  .header__row.mobile.active .menu__item>:is(.menu__link, .menu__item__button) {
+  .header__row.mobile.active .menu__item>:is(.menu__item__button) {
     padding: 0;
     padding-inline-end: 30px;
   }
@@ -602,7 +601,7 @@
           opacity: 0;
         }
         &:nth-child(3) {
-          transform: rotate(-45deg) translate(4px, -2px);
+          transform: rotate(-45deg) translate(4px, -3px);
         }
       }
     }

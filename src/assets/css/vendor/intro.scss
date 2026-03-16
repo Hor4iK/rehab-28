@@ -6,8 +6,6 @@
   position: relative;
   overflow: hidden;
 
-  
-
   &__inner {
     position: relative;
     z-index: 1;
@@ -20,13 +18,13 @@
       background-position: top left;
       max-width: 1300px;
       aspect-ratio: 1/1;
-      width: 100%;
+      width: 1300px;
       position: absolute;
       right: -380px;
       bottom: -710px;
       z-index: -1;
 
-      @media screen and (width<=1050px) {
+      @media screen and (width<=1250px) {
         content: none;
       }
 
@@ -35,7 +33,7 @@
         max-width: 190px;
         background-position: bottom left;
         background-size: 100%;
-        bottom: 39%;
+        bottom: 345px;
         right: 28px;
         background-image: url(../img/sections/intro-mini.webp);
       }
@@ -45,7 +43,7 @@
   &__top {
     max-width: 760px;
 
-    & > div:first-child {
+    &>div:first-child {
       margin-block-end: clamp(1.5rem, -3.75rem + 12vw, 3.75rem);
     }
   }
@@ -85,7 +83,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 
-    & > div {
+    &>div {
       background-color: #fff;
       border-radius: 20px;
       padding: 20px;
@@ -94,6 +92,28 @@
       align-items: center;
       gap: 16px;
       color: $black-color;
+
+      &.intro__advantages--trans {
+        border: 1px solid $white-opacity-10-color;
+        background-color: $white-opacity-10-color;
+        backdrop-filter: blur(10px);
+        color: #fff;
+        max-width: 390px;
+        padding: 12px;
+
+        @media screen and (700px<width<=1250px) {
+          display: none;
+        }
+
+        @media screen and (width>1250px) {
+          position: absolute;
+          right: 80px;
+          bottom: 540px;
+        }
+        @media screen and (width<=700px) {
+          max-width: none;
+        }
+      }
 
       @media screen and (width<=900px) {
         font-size: 14px;
@@ -106,9 +126,10 @@
     .point-mark {
       flex-shrink: 0;
       background-color: $primary-light-100-color;
-       svg {
+
+      svg {
         max-width: 24px;
-       }
+      }
     }
 
     @media screen and (width<=1200px) {
