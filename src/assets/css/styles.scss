@@ -6,6 +6,7 @@ $font-size: 16px;
 
 //colors
 $primary-color: #c3185d;
+$primary-800-color: #ac1156;
 $primary-light-200-color: #f3d1de;
 $primary-light-100-color: #fbf6f8;
 $primary-dark-color: #53072f;
@@ -28,12 +29,10 @@ $white-opacity-40-color: #ffffff66;
 $white-opacity-60-color: #ffffff99;
 $white-opacity-80-color: #ffffffcc;
 
-$gradient: linear-gradient(
-  107.93deg,
-  #ea5992 1.44%,
-  #e47b86 50.72%,
-  #e5d1b0 100%
-);
+$gradient: linear-gradient(107.93deg,
+    #ea5992 1.44%,
+    #e47b86 50.72%,
+    #e5d1b0 100%);
 $gradient-red: linear-gradient(90deg, #c2185b 0%, #ef4487 100%);
 $gradient-yellow: linear-gradient(180deg, #fcfaf7 0%, #fbeed8 100%);
 
@@ -55,13 +54,16 @@ body {
 
   &::-webkit-scrollbar {
     width: 10px;
+
     @media screen and (width<=500px) {
       width: 5px;
     }
   }
+
   &::-webkit-scrollbar-track {
     background-color: $primary-light-100-color;
   }
+
   &::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: $primary-color;
@@ -153,7 +155,7 @@ html {
     scale: 1.05;
   }
 
-  & > div {
+  &>div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,7 +163,7 @@ html {
     aspect-ratio: 1/1;
     border-radius: 20px;
     background-color: #fff;
-    border: 1px solid $black-light-color;
+    border: 1px solid $black-light-100-color;
 
     svg {
       flex-shrink: 0;
@@ -173,7 +175,7 @@ html {
     bottom: 0;
     border-radius: 15px;
 
-    & > div {
+    &>div {
       width: 52px;
     }
   }
@@ -185,18 +187,20 @@ html {
 
   & div:active,
   & div:focus {
-  animation: 1s infinite alternate breath;
-}
+    animation: 1s infinite alternate breath;
+  }
 }
 
 @keyframes breath {
   0% {
     outline: #c2185c5d solid 0.001em;
   }
+
   100% {
     outline: #c2185c33 solid 0.45em;
   }
 }
+
 /* /GO TO TOP BUTTON */
 
 .hide {
@@ -260,9 +264,11 @@ html {
   &_52 {
     width: 52px;
   }
+
   &_60 {
     width: 60px;
   }
+
   &_64 {
     width: clamp(2.75rem, -0.1667rem + 6.6667vw, 4rem);
   }
@@ -281,50 +287,90 @@ html {
     border: 1px solid $primary-light-200-color;
   }
 
+  &_arrow {
+
+    &::before {
+      content: "";
+      background-image: url(../img/icons/arrow-right.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: block;
+      height: 14px;
+      width: 7px;
+      transition: opacity 300ms, outline 300ms;
+      outline: 3px solid transparent;
+    }
+
+    &_left {
+      transform: rotate(180deg);
+    }
+
+    &:not(.swiper-button-disabled):hover,
+    &:not(.swiper-button-disabled):focus,
+    &:not(.swiper-button-disabled):active {
+      outline: 3px solid $primary-light-200-color;
+    }
+
+    &.swiper-button-disabled::before {
+      opacity: 0.5;
+    }
+  }
+
   &.point-phone::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/phone.svg);
   }
+
   &.point-phone-red::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/phone-red.svg);
   }
+
   &.point-clock::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/clock.svg);
   }
+
   &.point-clock-red::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/clock-red.svg);
   }
+
   &.point-liz::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/liz.svg);
   }
+
   &.point-liz-red::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/liz-red.svg);
   }
+
   &.point-vk::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/vk.svg);
   }
+
   &.point-vk-light::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/vk-light.svg);
   }
+
   &.point-tg::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/tg.svg);
   }
+
   &.point-eye::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/eye.svg);
   }
+
   &.point-map::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/map.svg);
   }
+
   &.point-map-red::before {
     @include point-mark-psevdo;
     background-image: url(../img/icons/map-red.svg);
@@ -391,6 +437,27 @@ a.point-mark:hover {
   &:hover {
     scale: 1.015;
     outline: 1px solid #ff84b5;
+  }
+}
+
+.swiper-pagination {
+  translate: 0 8px;
+
+  > span {
+    background-color: $primary-light-200-color;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+  
+    &.swiper-pagination-bullet-active {
+      background-color: $primary-color;
+    }
+
+    @media screen and (width<=900px) {
+      width: 10px;
+      height: 10px;
+    }
   }
 }
 
