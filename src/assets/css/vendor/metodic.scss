@@ -1,0 +1,115 @@
+.metodic {
+  padding-inline: $padding;
+
+  &__title {
+    align-items: start;
+    color: #fff;
+    gap: 24px;
+    margin-block-end: clamp(1.75rem, 0rem + 4vw, 2.5rem);
+
+    span {
+      &::before {
+        filter: brightness(15);
+      }
+    }
+
+    h2 {
+      margin-block-end: clamp(1.75rem, 0rem + 4vw, 2.5rem);
+      text-align: left;
+    }
+  }
+
+  &__desc {
+    color: $white-opacity-80-color;
+  }
+
+  &__wrapper {
+    background: $gradient;
+    border-radius: 30px;
+    padding: 80px;
+    padding-block-end: 186px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 760px;
+
+    &>div {
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 770px;
+      height: 770px;
+      background-image: url(../img/icons/clever-trans.webp);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: -190px;
+      bottom: -178px;
+    }
+
+    @media screen and (width<=900px) {
+      padding: 44px 24px 80px;
+    }
+  }
+
+  &__inner {}
+
+  &__picture {
+    display: block;
+    overflow: hidden;
+    outline: 20px solid $white-opacity-10-color;
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    border-radius: 20px;
+
+    img {
+      max-width: 670px;
+      min-width: 230px;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__item {
+    background-color: #fff;
+    padding: 28px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    &__title {
+      font-family: 'Grotesque', sans-serif;
+      font-size: clamp(1.125rem, 0.25rem + 2vw, 1.5rem);
+      margin-block-end: 20px;
+      color: $black-color;
+
+      @media screen and (width<=900px) {
+        margin-block-end: 16px;
+      }
+    }
+
+    &__desc {
+      color: $black-secondary-color;
+    }
+
+    @media screen and (width<=900px) {
+      padding: 24px;
+
+      &__desc {
+        font-size: 14px;
+      }
+    }
+  }
+}

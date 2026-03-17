@@ -85,7 +85,6 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  line-height: 1.2;
   text-align: center;
   color: $black-color;
   margin-bottom: 60px;
@@ -96,7 +95,7 @@ body {
     font-weight: inherit;
     font-size: clamp(2rem, -2.0833rem + 9.3333vw, 3.75rem);
     color: inherit;
-    line-height: inherit;
+    line-height: 1;
     max-width: 700px;
   }
 
@@ -275,6 +274,10 @@ html {
 
   &_light {
     background-color: #fff;
+  }
+
+  &_orange {
+    background-color: $secondary-color;
   }
 
   &_pr {
@@ -466,6 +469,8 @@ a.point-mark:hover {
 @import "vendor/digits";
 @import "vendor/steps";
 @import "vendor/condition";
+@import "vendor/metodic";
+
 
 @import "vendor/footer";
 @import "vendor/animate";
