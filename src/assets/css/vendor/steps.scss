@@ -1,4 +1,5 @@
 .steps {
+  padding-block-start: clamp(8.125rem, -10.8333rem + 33.3333vw, 13.75rem);
   padding-inline: $padding;
 
   &__inner {
