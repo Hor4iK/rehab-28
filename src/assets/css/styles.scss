@@ -135,7 +135,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* /GO TO TOP BUTTON */
+/* GO TO TOP BUTTON */
 #toTop {
   pointer-events: none;
   position: fixed;
@@ -199,8 +199,7 @@ html {
     outline: #c2185c33 solid 0.45em;
   }
 }
-
-/* /GO TO TOP BUTTON */
+/* /END GO TO TOP BUTTON */
 
 .hide {
   display: none !important;
@@ -481,6 +480,10 @@ a.point-mark:hover {
 .section-content--orange {
   background-color: $secondary-light-100-color;
   position: relative;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Grotesque', sans-serif;
 }
 
 @import "vendor/header";

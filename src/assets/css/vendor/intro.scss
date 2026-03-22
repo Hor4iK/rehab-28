@@ -73,7 +73,7 @@
   }
 
   &__desc {
-    font-size: clamp(0.875rem, 0rem + 2vw, 1.25rem);
+    font-size: clamp(0.875rem, -2rem + 2vw, 1.25rem);
     line-height: 1.2;
     max-width: 600px;
   }

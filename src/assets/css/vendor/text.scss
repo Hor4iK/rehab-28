@@ -1,0 +1,105 @@
+.text {
+  padding-inline: $padding;
+
+  h2 {
+    font-size: clamp(2rem, -2.0833rem + 9.3333vw, 3.75rem);
+  }
+  h3 {
+    font-size: clamp(1.75rem, -0.5833rem + 5.3333vw, 2.75rem);
+  }
+  h4 {
+    font-size: clamp(1.5rem, 0.3333rem + 2.6667vw, 2rem);
+  }
+  h5 {
+    font-size: clamp(1.125rem, 0.25rem + 2vw, 1.5rem);
+  }
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-block-end: clamp(1.75rem, -2rem + 4vw, 2.5rem);
+    &:not(:first-child) {
+      margin-block-start: clamp(3.5rem, 2.3333rem + 2.6667vw, 4rem);
+    }
+  }
+
+  p {
+    color: $black-color;
+    line-height: 1.2;
+
+    &:not(:last-child) {
+      margin-block-end: clamp(1.5rem, 0.3333rem + 2.6667vw, 2rem);
+    }
+  }
+
+  ul {
+    li {
+      padding-inline-start: 18px;
+      position: relative;
+
+      &:not(:last-child) {
+        margin-block-end: 20px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-image: url(../img/icons/cuboid.svg);
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(50%);
+      }
+
+      span {
+        color: $primary-color;
+        font-weight: 600;
+        line-height: 1;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: ol;
+
+    li {
+      padding-inline-start: 40px;
+      position: relative;
+      list-style: none;
+      counter-increment: ol;
+
+      &:not(:last-child) {
+        margin-block-end: 20px;
+      }
+
+      &::before {
+        content: counter(ol);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-image: url(../img/icons/rombik.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+        line-height: 1;
+        position: absolute;
+        top: 4px;
+        left: 0;
+      }
+
+      @media (width<=900px) {
+        padding-inline-start: 35px;
+      }
+    }
+  }
+
+  @media (width<=900px) {
+    font-size: 14px;
+  }
+}
