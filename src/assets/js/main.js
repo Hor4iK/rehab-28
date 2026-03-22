@@ -595,81 +595,30 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  //Slider CARDS, turns on when mobile
-  cardsSwipers = document.querySelectorAll(".cards");
-  if (cardsSwipers && cardsSwipers.length > 0) {
-    swiperCheck = new Array();
-    for (let i = 0; i < cardsSwipers.length; i++) {
-      const cardsList = cardsSwipers[i].querySelector('.cards__list');
-      swiperCheck[i] = false;
-      ['resize', 'load'].forEach((event) => {
-        window.addEventListener(event, function () {
-          if (window.innerWidth <= 1300 && !swiperCheck[i]) {
-            cardsList.classList.add('swiper-wrapper');
-            swiperCheck[i] = new Swiper(cardsSwipers[i].querySelector('.cards__swiper'), {
-              direction: 'horizontal',
-              slidesPerView: 1,
-              grabCursor: true,
-              spaceBetween: 10,
-              breakpoints: {
-                0: {
-                  slidesPerView: 1.1,
-                  spaceBetween: 10
-                },
-                750: {
-                  slidesPerView: 2,
-                  spaceBetween: 15
-                }
-              }
-            });
-          }
-          if (window.innerWidth > 1300 && swiperCheck[i]) {
-            cardsList.classList.remove('swiper-wrapper');
-            swiperCheck[i].destroy(true, true);
-            swiperCheck[i] = false
-          }
-        })
-      });
-    }
-  }
-
-  //Slider CENTER, turns on when mobile
-  centerSwiper = document.querySelector(".center-lecheniya");
-  if (centerSwiper) {
-    const centerList = centerSwiper.querySelector('.center-lecheniya__gallery');
-    const centerItemArray = centerList.querySelectorAll('.center-lecheniya__gallery__item:not(.center-lecheniya__gallery__item_more)');
-    centerSwiperCheck = false;
-    ['resize', 'load'].forEach((event) => {
-      window.addEventListener(event, function () {
-        if (window.innerWidth <= 800 && !centerSwiperCheck) {
-          if (centerItemArray && centerItemArray.length > 0) {
-            centerItemArray.forEach(item => {
-              item.classList.add('swiper-slide');
-            })
-          }
-          centerList.classList.add('swiper-wrapper');
-          centerSwiperCheck = new Swiper(centerSwiper.querySelector('.center-lecheniya__gallery__wrapper'), {
-            direction: 'horizontal',
-            slidesPerView: 1.1,
-            grabCursor: true,
-            spaceBetween: 10
-          });
+  //Slider Metodics
+  metodicSwiper = document.querySelector(".metodic");
+  if (metodicSwiper) {
+    metodicSwiperCheck = new Swiper(metodicSwiper.querySelector('.metodic__list'), {
+      direction: 'horizontal',
+      slidesPerView: 1.02,
+      grabCursor: true,
+      spaceBetween: 8,
+      breakpoints: {
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 12
+        },
+        1300: {
+          slidesPerView: 3,
+          spaceBetween: 20
         }
-        if (window.innerWidth > 800 && centerSwiperCheck) {
-          const centerItemArray = centerList.querySelectorAll('.swiper-slide');
-          centerList.classList.remove('swiper-wrapper');
-          if (centerItemArray && centerItemArray.length > 0) {
-            centerItemArray.forEach(item => {
-              item.classList.remove('swiper-slide');
-            })
-          }
-          centerSwiperCheck.destroy(true, true);
-          centerSwiperCheck = false
-        }
-      })
-    })
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      }
+    });
   }
-
 
   //Slider Conditions
   conditionSwiper = document.querySelector(".condition");

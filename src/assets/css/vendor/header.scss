@@ -83,6 +83,7 @@
 
   &.fixed {
     position: fixed;
+    z-index: 15;
     inset: 0 0 auto;
     backdrop-filter: blur(2px);
     -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
