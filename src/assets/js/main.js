@@ -518,27 +518,6 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END HOW-GOING SECTION -- */
 
 
-
-  /* -- COPY BUTTON -- */
-  const copyBtns = document.querySelectorAll('.copylink-btn');
-  if (copyBtns && copyBtns.length > 0) {
-    copyBtns.forEach(copyBtn => {
-      copyBtn.addEventListener('click', () => {
-        const textBtn = this.querySelector('.copylink-btn__text');
-        const originalText = textBtn.textContent;
-        const currentUrl = window.location.href;
-        navigator.clipboard.writeText(currentUrl);
-        textBtn.textContent = 'Ссылка скопирована!';
-        setTimeout(() => {
-          textBtn.textContent = originalText;
-        }, 2000);
-      })
-    })
-  }
-  /* -- END COPY BUTTON -- */
-
-
-
   /* -- SLIDERS  -- */
 
   //Slider INTRO, turns off when resize
@@ -689,6 +668,37 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   /* -- END POPUPS  -- */
 
+
+  /*POLICY-PLASHKA*/
+  function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+  const cookiePolicy = document.querySelector('.cookie-policy');
+  if (cookiePolicy) {
+    if (getCookie('cookie-policyz') != "en") {
+      cookiePolicy.classList.add('active');
+      document.cookie = "cookie-policyz=dis";
+      const btnsContainer = cookiePolicy.querySelector('.bottom-info__action');
+      if (btnsContainer) {
+        const btnsArr = btnsContainer.querySelectorAll('button');
+        btnsArr.forEach(button => {
+          button.addEventListener('click', evt => {
+            cookiePolicy.classList.remove('active');
+            setTimeout(() => {
+              cookiePolicy.style.display = "none";
+            }, 3000);
+            document.cookie = "cookie-policyz=en";
+          })
+        })
+      }
+    } else if (getCookie('cookie-policyz') == "en") {
+      cookiePolicy.style.display = "none";
+    }
+  }
+  /* -- END POLICY-PLASHKA -- */
 
 
   /* -- POPUP CALCULATOR -- */

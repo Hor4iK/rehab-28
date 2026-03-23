@@ -132,3 +132,149 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/*POLICY-PLASHKA*/
+.bottom-info__wrapper {
+  position: fixed;
+  max-width: 960px;
+  width: 100%;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 7;
+  color: $black-color;
+  font: inherit;
+  padding-inline: $padding;
+  opacity: 0;
+  transition: opacity 300ms;
+  font-size: clamp(0.525rem, 0.45rem + 0.4vw, 0.65rem);
+  line-height: 1.1;
+  pointer-events: none;
+
+  @media (width<=700px) {
+    bottom: 0;
+  }
+}
+
+.bottom-info__wrapper.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.bottom-info__wrapper .bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 37px 32px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: inset 0 1px 10px 0 #00000012;
+
+  @media (width<=700px) {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .bottom-info__wrapper .bottom-info {
+    flex-direction: column;
+  }
+}
+
+.bottom-info__wrapper .bottom-info__content {
+  margin: 0 10px 0 0;
+}
+
+.bottom-info__content a {
+  color: $primary-color;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: color 0.3s ease, background-size 0.25s ease;
+  background-size: 100% 1px;
+}
+
+.bottom-info__content a:hover {
+  color: $primary-800-color;
+  background-size: 0% 1px;
+}
+
+@media screen and (max-width: 700px) {
+  .bottom-info__wrapper .bottom-info__content {
+    text-align: center;
+    margin: 0 30px 0 0;
+  }
+}
+
+.bottom-info__wrapper .bottom-info__action {
+  @media (width<=700px) {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .bottom-info__wrapper .bottom-info__action {
+    margin: 10px 0 0;
+  }
+}
+
+.bottom-info__wrapper .bottom-info__button-agree {
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: $primary-color;
+  border-radius: 20px;
+  padding: 24px;
+  display: block;
+  background-color: $primary-light-100-color;
+  border: 1px solid $primary-light-200-color;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-light-200-color;
+  }
+
+  @media (width<=700px) {
+    padding: 15px;
+    font-size: 14px;
+    width: 100%;
+    border-radius: 15px;
+    margin-block-start: 16px;
+  }
+}
+
+.bottom-info__wrapper .bottom-info__button-cross {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4em;
+  background-color: transparent;
+  border: none;
+  margin-inline-start: 12px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .bottom-info__wrapper .bottom-info__button-cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.bottom-info__button-cross::after {
+  content: "\00D7";
+  color: #999;
+  line-height: 1;
+  transition: color 300ms;
+}
+
+.bottom-info__wrapper .bottom-info__button-cross:hover::after {
+  color: #fff;
+}
+
+/*POLICY-PLASHKA*/
