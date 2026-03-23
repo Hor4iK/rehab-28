@@ -32,86 +32,54 @@ document.addEventListener('DOMContentLoaded', function () {
   if (textAreas && textAreas.length > 0) {
     textAreas.forEach(text => {
       const autocontentSection = text.querySelector('.autocontent');
-      const jsScrollBlockList = text.querySelectorAll('h2, h3, h4');
 
-      if (jsScrollBlockList.length > 0 && autocontentSection) {
-        const autocontentList = autocontentSection.querySelector('.autocontent__list');
+      if (autocontentSection) {
+        const jsScrollBlockList = text.querySelectorAll('h2, h3');
 
-        const elementString =
-          `<li class="autocontent__item hide-item">
-            <div class="autocontent__item-title hide-item__title"></div>
-            <div class="hide-item__height">
-              <div class="hide-item__content">
-                <div class="autocontent__item-content">
-
-                </div>
-              </div>
-            </div>
-          </li>`;
-
-        const parser = new DOMParser();
-        const element = parser.parseFromString(elementString, 'text/html');
-        const elementItem = element.body.firstChild;
-
-        var articleNavigationItem = elementItem.cloneNode(true);
-        var firstElementCheck = 0;
-
-        for (let i = 0; i < jsScrollBlockList.length; i += 1) {
-          const jsScrollBlock = jsScrollBlockList[i];
-          const titleBlock = jsScrollBlock.textContent;
-          const articleNavigationLink = document.createElement('a');
-
-          if (jsScrollBlock.tagName == 'H2') {
-            if (firstElementCheck != 0) {
-              autocontentList.append(articleNavigationItem);
-              articleNavigationItem = elementItem.cloneNode(true);
+        if (jsScrollBlockList.length > 0) {
+          for (let i = 0; i < jsScrollBlockList.length; i += 1) {
+            const jsScrollBlock = jsScrollBlockList[i];
+            const titleBlock = jsScrollBlock.textContent;
+            const articleNavigationItem = document.createElement('li');
+            const articleNavigationLink = document.createElement('a');
+            if (jsScrollBlock.tagName == 'H1') {
+              articleNavigationItem.classList.add('title-h1');
             }
-            navTitle = articleNavigationItem.querySelector('.autocontent__item-title');
-
-            articleNavigationLink.classList.add('title-h2');
+            if (jsScrollBlock.tagName == 'H2') {
+              articleNavigationItem.classList.add('title-h2');
+            }
             jsScrollBlock.setAttribute('id', i)
             articleNavigationLink.setAttribute('href', '#' + i);
             articleNavigationLink.textContent = ' ' + titleBlock;
-            navTitle.append(articleNavigationLink);
-            firstElementCheck++;
-          } else {
-            navList = articleNavigationItem.querySelector('.autocontent__item-content');
-
-            if (jsScrollBlock.tagName == 'H3') {
-              articleNavigationLink.classList.add('title-h3');
-            }
-            if (jsScrollBlock.tagName == 'H4') {
-              articleNavigationLink.classList.add('title-h4');
-            }
-
-            jsScrollBlock.setAttribute('id', i)
-            articleNavigationLink.setAttribute('href', '#' + i);
-            articleNavigationLink.textContent = ' ' + titleBlock;
-            navList.append(articleNavigationLink);
+            articleNavigationItem.append(articleNavigationLink);
+            autocontentSection.querySelector('.autocontent__list ul').append(articleNavigationItem);
           }
+        } else {
+          autocontentSection.remove();
         }
-        autocontentList.append(articleNavigationItem);
-        text.querySelectorAll('a[href^="#"').forEach(link => {
-
-          link.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            let href = this.getAttribute('href').substring(1);
-            const scrollTarget = document.getElementById(href);
-            const topOffset = 180;
-            const elementPosition = scrollTarget.getBoundingClientRect().top;
-            const offsetPosition = elementPosition - topOffset;
-
-            window.scrollBy({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          });
-        });
       }
     })
   }
   /* -- END AUTOMATIC CONTENT   -- */
+
+
+  document.querySelectorAll('a[href^="#"').forEach(link => {
+
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      let href = this.getAttribute('href').substring(1);
+      const scrollTarget = document.getElementById(href);
+      const topOffset = 180;
+      const elementPosition = scrollTarget.getBoundingClientRect().top;
+      const offsetPosition = elementPosition - topOffset;
+
+      window.scrollBy({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    });
+  });
 
 
   /* -- HEADER   -- */
@@ -195,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let height = content.querySelector('.hide-item__content').offsetHeight;
             title.classList.add('active');
             content.classList.add('active');
-            content.style.height = height + 'px';
+            content.style.height = height + 24 + 'px';
           }
         })
       })
