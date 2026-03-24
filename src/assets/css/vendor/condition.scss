@@ -1,5 +1,7 @@
 .condition {
   padding-inline: $padding;
+  position: relative;
+  max-width: calc(1560px - clamp(.625rem, -.4688rem + 2.5vw, 1.25rem) * 2 + 120px);
 
   &__inner {
     padding-block-end: clamp(1.875rem, -1.3333rem + 7.3333vw, 3.25rem);
@@ -81,22 +83,26 @@
 
     &.slider-sl__next {
       position: absolute;
-      right: -70px;
+      right: 0;
       z-index: 2;
-      top: 50%;
+      top: 60%;
       transform: translateY(-50%);
     }
 
     &.slider-sl__prev {
       position: absolute;
-      left: -70px;
+      left: 0;
       z-index: 2;
-      top: 50%;
+      top: 60%;
       translate: 0 -50%;
+    }
+
+    @media (width<=700px) {
+      display: none;
     }
   }
 
   &__slider {
-    position: relative;
+    overflow: hidden;
   }
 }

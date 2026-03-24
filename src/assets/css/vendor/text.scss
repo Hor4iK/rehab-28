@@ -277,9 +277,20 @@
     border-radius: 20px;
     border: 1px solid $black-light-100-color;
     box-shadow: 1px 2px 10px -3px #eaeaea;
+    transition: outline 300ms;
+    outline: 1px solid transparent;
 
     @media (width<=450px) {
       width: 100%;
+    }
+  }
+
+  &:hover {
+    .reviewer-block__content {
+      outline: 1px solid $primary-light-200-color;
+    }
+    .reviewer-block__picture img {
+      scale: 1.05;
     }
   }
 
@@ -354,6 +365,7 @@
 
     img {
       max-width: 129px;
+      transition: scale 300ms ease-out;
     }
 
     @media (width<=450px) {
