@@ -479,6 +479,7 @@ a.point-mark:hover {
 
 .section-content--orange {
   background-color: $secondary-light-100-color;
+  padding-block: clamp(3.75rem, -10.8333rem + 33.3333vw, 10rem);
   position: relative;
 }
 
@@ -493,6 +494,8 @@ h1, h2, h3, h4, h5 {
 @import "vendor/condition";
 @import "vendor/metodic";
 @import "vendor/text";
+@import "vendor/price";
+@import "vendor/faq";
 
 @import "vendor/footer";
 @import "vendor/animate";
