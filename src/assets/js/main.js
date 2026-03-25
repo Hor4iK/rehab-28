@@ -404,21 +404,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   /* -- FAQ  -- */
-  const faq = document.querySelector('.faq-section');
+  const faq = document.querySelector('.faq');
   if (faq) {
-    const titleArray = faq.querySelectorAll('.faq-section__top-container');
-    const contentArray = faq.querySelectorAll('.faq-section__bottom-container');
+    const titleArray = faq.querySelectorAll('.faq__top-container');
+    const contentArray = faq.querySelectorAll('.faq__bottom-container');
     const pagList = faq.querySelector('.pag-list');
     const moreBtn = faq.querySelector('.btn_more');
 
     if (titleArray && contentArray) {
-      tabs('.faq-section__item', titleArray, contentArray);
+      tabs('.faq__item', titleArray, contentArray);
     }
 
     if (pagList && moreBtn) {
       pagList.classList.add('pag-active');
 
-      HiddenElementsInit(pagList, 4, moreBtn);
+      HiddenElementsInit(pagList, 5, moreBtn);
       moreBtn.addEventListener("click", (evt) => {
         hiddenElements = hiddenItems(pagList);
         for (let i = 0; i < hiddenElements.length; i++) {

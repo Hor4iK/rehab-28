@@ -11,8 +11,11 @@
     background-color: #fff;
     border-radius: 24px;
     overflow: hidden;
-    transition: max-height 0.2s ease-out, background-color 300ms ease-out,
-      color 250ms, padding 300ms;
+    transition:
+      max-height 0.2s ease-out,
+      background-color 300ms ease-out,
+      color 250ms,
+      padding 300ms;
     max-height: 1000px;
 
     &.hidden {
@@ -63,8 +66,15 @@
       transition: padding 300ms ease-out;
       cursor: pointer;
 
-      &.active .faq__btn_open span:last-of-type {
-        transform: rotate(0);
+      &.active {
+        .faq__btn_open {
+          background-color: $primary-color;
+
+          &::before {
+            filter: brightness(10);
+            transform: rotate(270deg);
+          }
+        }
       }
     }
   }
@@ -82,7 +92,6 @@
       }
 
       div {
-
         span {
           border-radius: 100%;
           width: 7px;
@@ -113,24 +122,28 @@
     &-container {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 400ms ease-in-out, padding 300ms;
+      transition:
+        max-height 400ms ease-in-out,
+        padding 300ms;
     }
   }
 
   &__btn_open {
-    width: 80px;
-    background-color: #fff;
+    background-color: $primary-light-100-color;
+    transition: background-color 400ms ease-in-out;
 
-    span {
+    &::before {
+      content: "";
       display: block;
-      position: absolute;
-      width: 15px;
-      height: 2px;
-      transition: transform 400ms ease-in-out;
-
-      &:last-of-type {
-        transform: rotate(270deg);
-      }
+      width: 12px;
+      height: 12px;
+      background-image: url(../img/icons/three-point-right.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      transform: rotate(90deg);
+      transition:
+        transform 400ms ease-in-out,
+        filter 300ms;
     }
   }
 
@@ -201,25 +214,10 @@
         font-size: 24px;
         line-height: 140%;
       }
-
-      .faq__btn_open {
-        width: 70px;
-        background: $primary-color;
-      }
-
-      .faq__btn_open span:last-of-type {
-          transform: rotate(0);
-        }
-
-      &.active {
-        span:last-of-type {
-          transform: rotate(270deg);
-        }
-      }
     }
   }
 
-  &__btn {
+  &__link {
     width: 100%;
     max-width: 207px;
     justify-content: center;
@@ -257,10 +255,6 @@
       }
     }
 
-    &__btn_open {
-      width: 64px;
-    }
-
     &__content-btn {
       font-weight: 600;
       font-size: 16px;
@@ -269,6 +263,22 @@
       .faq__btn_open {
         width: 56px;
       }
+    }
+
+    &__top {
+      display: contents;
+    }
+
+    &__title {
+      order: 1;
+    }
+
+    &__link {
+      order: 3;
+      max-width: none;
+    }
+    &__content {
+      order: 2;
     }
   }
 
