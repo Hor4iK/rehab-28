@@ -325,198 +325,18 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END TABS  -- */
 
 
-
-  /* -- SERVICES  -- */
-  const service = document.querySelector('.services');
-
-  if (service) {
-
-    //Services tabs
-    const serviceTitle = service.querySelectorAll('.services__top-container');
-    const serviceContent = service.querySelectorAll(".services__bottom-container");
-    if (serviceTitle && serviceContent) {
-      tabs('.services__item', serviceTitle, serviceContent);
-    }
-
-    //Services category
-    const serviceItems = service.querySelectorAll('.services__item');
-
-    serviceItems.forEach(item => {
-      const categories = item.querySelectorAll('.services__category__item');
-      const categoriesContent = item.querySelectorAll(".services__table");
-
-      categoriesSwitch(service, categories, categoriesContent, ".services__category__item.active", ".services__table.active", true);
-    })
-
-    //Swipe lists of category
-    const containersArray = document.querySelectorAll('.services__category__list');
-    containersArray.forEach(container => {
-      grabListListeners(container);
-    })
-
-  }
-  /* -- END SERVICES  -- */
-
-
-
-  /* -- ALLOCATOR PAGE -- */
-  const allocator = document.querySelector('.allocator');
-
-  if (allocator) {
-    const serviceTitle = allocator.querySelectorAll('.categories__top-container');
-    const serviceContent = allocator.querySelectorAll(".categories__bottom-container");
-
-    if (serviceTitle && serviceContent) {
-      tabs('.allocator__categories__list', serviceTitle, serviceContent);
-    }
-
-    const item = allocator.querySelector('.allocator__categories__list');
-    const categories = item.querySelectorAll('.categories__item');
-    const listTitle = item.querySelector('.categories__subtitle');
-    const categoriesContent = allocator.querySelectorAll(".allocator__block");
-
-    listTitle.textContent = categories[0].textContent;
-
-    categories.forEach(category => {
-      category.addEventListener('click', evt => {
-        const categoryTitle = evt.target.textContent;
-        listTitle.textContent = categoryTitle;
-      })
-    })
-    categoriesSwitch(allocator, categories, categoriesContent, ".categories__item.active", ".allocator__block.active");
-
-  }
-  /* -- END ALLOCATOR PAGE -- */
-
-
-
-  /* -- VACANCIES  -- */
-  const vacancies = document.querySelector('.part-team');
-  if (vacancies) {
-    const titleArray = vacancies.querySelectorAll('.part-team__top-container');
-    const contentArray = vacancies.querySelectorAll('.part-team__bottom-container');
-
-    if (titleArray && contentArray) {
-      tabs('.part-team__item', titleArray, contentArray);
-    }
-  }
-  /* -- END VACANCIES  -- */
-
-
   /* -- FAQ  -- */
   const faq = document.querySelector('.faq');
   if (faq) {
     const titleArray = faq.querySelectorAll('.faq__top-container');
     const contentArray = faq.querySelectorAll('.faq__bottom-container');
-    const pagList = faq.querySelector('.pag-list');
-    const moreBtn = faq.querySelector('.btn_more');
 
     if (titleArray && contentArray) {
       tabs('.faq__item', titleArray, contentArray);
     }
-
-    if (pagList && moreBtn) {
-      pagList.classList.add('pag-active');
-
-      HiddenElementsInit(pagList, 5, moreBtn);
-      moreBtn.addEventListener("click", (evt) => {
-        hiddenElements = hiddenItems(pagList);
-        for (let i = 0; i < hiddenElements.length; i++) {
-          hiddenElements[i].classList.remove("hide");
-        }
-        moreBtn.classList.remove("active");
-      })
-    }
   }
   /* -- END FAQ  -- */
-
-
-
-  /* -- LAW-PAGE  -- */
-  const law = document.querySelector('.legal-information');
-  if (law) {
-    const titleArray = law.querySelectorAll('.legal-information__top-container');
-    const contentArray = law.querySelectorAll('.legal-information__bottom-container');
-
-    if (titleArray && contentArray) {
-      tabs('.legal-information__item', titleArray, contentArray);
-    }
-  }
-  /* -- END LAW-PAGE -- */
-
-
-
-  /* -- MYTHS SECTION  -- */
-  const myths = document.querySelector('.myths');
-  if (myths) {
-    const titleArray = myths.querySelectorAll('.myths__top-container');
-    const contentArray = myths.querySelectorAll('.myths__bottom-container');
-
-    if (titleArray && contentArray) {
-      tabs('.myths__item', titleArray, contentArray);
-    }
-  }
-  /* -- END MYTHS SECTION -- */
-
-
-
-  /* -- DOCTOR  -- */
-  //Doctor tabs
-  const education = document.querySelector('.doctor-page__education');
-  if (education) {
-    const educationList = education.querySelector('.doctor-page__education-tabs');
-    const educationCategories = education.querySelectorAll('.doctor-page__education-tab');
-    const educationContent = education.querySelectorAll('.doctor-page__education-items');
-
-    grabListListeners(educationList);
-    categoriesSwitch(education, educationCategories, educationContent, ".doctor-page__education-tab.active", ".doctor-page__education-items.active");
-  }
-  /* -- END DOCTOR  -- */
-
-
-  /* -- AUTOCONTENT RESIZE  -- */
-  const autocontentArray = document.querySelectorAll('.autocontent');
-  if (autocontentArray && autocontentArray.length > 0) {
-    autocontentArray.forEach(autocontent => {
-      const titleArray = autocontent.querySelectorAll('.autocontent__subtitle__wrapper');
-      const contentArray = autocontent.querySelectorAll('.autocontent__bottom-container');
-
-      if (titleArray && contentArray) {
-        if (window.innerWidth <= 975) {
-          tabs('.autocontent', titleArray, contentArray);
-        }
-      }
-    })
-  }
-  /* -- END AUTOCONTENT RESIZE  -- */
-
-
-  /* -- SCHEME SECTION  -- */
-  const scheme = document.querySelector('.scheme-work');
-  if (scheme) {
-    const titleArray = scheme.querySelectorAll('.scheme-work__top-container');
-    const contentArray = scheme.querySelectorAll('.scheme-work__bottom-container');
-
-    if (titleArray && contentArray) {
-      tabs('.scheme-work__item', titleArray, contentArray);
-    }
-  }
-  /* -- END SCHEME SECTION -- */
-
-
-  /* -- HOW-GOING SECTION  -- */
-  const how = document.querySelector('.how-procedure');
-  if (how) {
-    const titleArray = how.querySelectorAll('.how-procedure__top-container');
-    const contentArray = how.querySelectorAll('.how-procedure__bottom-container');
-
-    if (titleArray && contentArray) {
-
-      tabs('.how-procedure__item', titleArray, contentArray);
-    }
-  }
-  /* -- END HOW-GOING SECTION -- */
-
+  
 
   /* -- SLIDERS  -- */
 
@@ -601,7 +421,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* -- END SLIDERS  -- */
-
 
 
   /* -- POPUPS  -- */
@@ -757,7 +576,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
   /* -- END TOTOP -- */
-
 
 
   /* -- OBSERVER -- */

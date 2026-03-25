@@ -7,10 +7,8 @@
   }
 
   &__item {
-    padding: 10px 10px 10px 36px;
-    background-color: #fff;
-    border-radius: 24px;
     overflow: hidden;
+    padding: 2px;
     transition:
       max-height 0.2s ease-out,
       background-color 300ms ease-out,
@@ -26,15 +24,18 @@
     }
 
     &.active {
-      outline: 1px solid $primary-color;
+      .faq__top-container {
+        outline: 1px solid $primary-color;
+      }
 
       .faq__bottom-container {
-        padding-top: 10px;
+        padding-block: 20px;
+        margin-top: 6px;
       }
     }
 
     &:not(:last-child) {
-      margin-block-end: 20px;
+      margin-block-end: 4px;
     }
   }
 
@@ -52,18 +53,21 @@
     width: 50%;
 
     &-text {
-      line-height: 140%;
-      color: rgba(19, 58, 102, 0.65);
+      line-height: 120%;
+      color: $black-color;
       margin-bottom: 24px;
-      max-width: 262px;
+      max-width: 80%;
     }
 
     &-container {
+      padding: 12px 12px 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: none;
-      transition: padding 300ms ease-out;
+      border-radius: 20px;
+      background-color: #fff;
+      transition: padding 300ms ease-out, outline 300ms;
       cursor: pointer;
 
       &.active {
@@ -111,17 +115,15 @@
     &-text {
       line-height: 120%;
       margin-bottom: 20px;
-    }
-
-    &-name {
-      font-size: 18px;
-      line-height: 120%;
-      color: rgba(255, 255, 255, 0.65);
+      font-size: clamp(0.875rem, 0.5833rem + 0.6667vw, 1rem);
     }
 
     &-container {
       max-height: 0;
       overflow: hidden;
+      background-color: #fff;
+      border-radius: 20px;
+      padding-inline: 20px;
       transition:
         max-height 400ms ease-in-out,
         padding 300ms;
@@ -149,7 +151,7 @@
 
   &__subtitle {
     font-weight: 500;
-    font-size: 24px;
+    font-size: clamp(1rem, 0.4167rem + 1.3333vw, 1.25rem);
     line-height: 116%;
 
     &__wrapper {
@@ -230,8 +232,6 @@
     }
 
     &__item {
-      padding: 10px 10px 10px 20px;
-      border-radius: 16px;
     }
 
     &__bottom {
@@ -265,12 +265,21 @@
       }
     }
 
+    &__btn {
+      width: 48px;
+    }
+
     &__top {
       display: contents;
+
+      &-container {
+        border-radius: 15px;
+      }
     }
 
     &__title {
       order: 1;
+      margin: 0;
     }
 
     &__link {
