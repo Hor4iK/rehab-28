@@ -1,0 +1,211 @@
+.price {
+  padding-inline: $padding;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__inner {
+    width: 100%;
+  }
+
+  &__content {}
+
+  &__categories {
+    margin-block-end: 32px;
+
+    &__top {
+      width: 100%;
+      background-color: #fff;
+      padding: 16px;
+      font-size: 14px;
+      color: $black-color;
+      border: 1px solid $black-light-100-color;
+      border-radius: 15px;
+      outline: 1px solid transparent;
+      transition: outline 300ms;
+      position: relative;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        outline: 1px solid $primary-color;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        background-color: $primary-light-100-color;
+        border-radius: 50%;
+        background-image: url(../img/icons/mini-arrow.svg);
+        background-repeat: no-repeat;
+        background-size: 10px 7px;
+        background-position: center center;
+        width: 24px;
+        aspect-ratio: 1/1;
+        position: absolute;
+        right: 16px;
+        top: 14px;
+        transform: rotate(180deg);
+        transition: transform 500ms;
+        z-index: 2;
+      }
+
+      &.active {
+        &::after {
+          transform: rotate(0);
+        }
+      }
+
+      @media (width>900px) {
+        display: none;
+      }
+    }
+
+    &__bottom {
+      background-color: #fff;
+      padding-inline: 16px;
+      font-size: 14px;
+      color: $black-color;
+      outline: 1px solid transparent;
+      border-radius: 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, outline 300ms;
+      margin-block-start: 4px;
+
+      &.active {
+        padding-block: 16px;
+        outline: 1px solid $black-light-100-color;
+      }
+
+      @media (width>900px) {
+        display: flex;
+        gap: 4px;
+        max-height: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    @media (width>900px) {
+      padding: 8px;
+      background-color: #fff;
+      border-radius: 20px;
+      width: fit-content;
+      margin-inline: auto;
+    }
+  }
+
+  &__category {
+    padding: 15px;
+    cursor: pointer;
+    background-image: linear-gradient($primary-light-200-color, $primary-light-200-color);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: color .3s, background-size .25s, background-color 300ms;
+    background-size: 0 1px;
+    background-color: transparent;
+
+    &.active {
+      background-color: $primary-color;
+      color: #fff;
+    }
+
+    &:hover {
+      background-size: 100% 1px;
+    }
+
+    @media (width<=900px) {
+      &:not(:last-child) {
+        border-bottom: 1px solid $black-light-100-color;
+      }
+    }
+
+    @media (width>900px) {
+      padding: 24px 32px;
+      border-radius: 12px;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+    margin-block-end: 40px;
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+
+    @media (width<=1000px) {
+      margin-block-end: 20px;
+    }
+  }
+
+  &__item {
+    background-color: #fff;
+    border: 1px solid $black-light-100-color;
+    border-radius: 20px;
+    padding: 9px 8px 9px 28px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    p {
+      font-size: clamp(1rem, 0.4167rem + 1.3333vw, 1.25rem);
+      color: $black-color;
+      width: 100%;
+    }
+
+    span {
+      font-size: clamp(0.875rem, 0rem + 2vw, 1.25rem);
+      display: block;
+      max-width: 321px;
+      width: 100%;
+      color: $primary-color;
+    }
+
+    @media (width<=900px) {
+      padding: 24px 8px 8px 24px;
+      flex-wrap: wrap;
+      row-gap: 12px;
+
+      span {
+        max-width: 130px;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 24px;
+    gap: 30px;
+    background-color: $primary-light-100-color;
+    color: $primary-color;
+    font-size: clamp(0.875rem, 0.5833rem + 0.6667vw, 1rem);
+    border: 1px solid $primary-light-200-color;
+    outline: 1px solid transparent;
+
+    &::after {
+      background-image: url(../img/icons/three-point-right.svg);
+    }
+
+    @media (width<=1000px) {
+      padding: 16px;
+      gap: 12px;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    max-width: 180px;
+    justify-content: center;
+
+    @media (width<=700px) {
+      max-width: none;
+    }
+  }
+}

@@ -336,31 +336,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
   /* -- END FAQ  -- */
+
+
+  /* -- PRICE -- */
+  const price = document.querySelector('.price');
+  if (price) {
+    const titleArray = price.querySelectorAll('.price__categories__top');
+    const contentArray = price.querySelectorAll('.price__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.price__categories', titleArray, contentArray);
+    }
+
+    const categories = price.querySelectorAll('.price__category');
+    const listTitle = price.querySelector('.price__categories__top');
+    const categoriesContent = price.querySelectorAll(".price__list");
+
+    listTitle.textContent = categories[0].textContent;
+
+    categories.forEach(category => {
+      category.addEventListener('click', evt => {
+        const categoryTitle = evt.target.textContent;
+        listTitle.textContent = categoryTitle;
+      })
+    })
+
+    categoriesSwitch(price, categories, categoriesContent, ".price__category.active", ".price__list.active");
+  }
+  /* -- END PRICE -- */
   
 
   /* -- SLIDERS  -- */
-
-  //Slider INTRO, turns off when resize
-  introSwiper = document.querySelector(".intro");
-  if (introSwiper) {
-    introSwiperCheck = false;
-    ['resize', 'load'].forEach((event) => {
-      window.addEventListener(event, function () {
-        if (window.innerWidth <= 650 && !introSwiperCheck) {
-          introSwiperCheck = new Swiper(introSwiper.querySelector('.intro__swiper'), {
-            direction: 'horizontal',
-            slidesPerView: 1.1,
-            grabCursor: true,
-            spaceBetween: 10
-          });
-        }
-        if (window.innerWidth > 650 && introSwiperCheck) {
-          introSwiperCheck.destroy(true, true);
-          introSwiperCheck = false
-        }
-      })
-    })
-  }
 
   //Slider Metodics
   metodicSwiper = document.querySelector(".metodic");
