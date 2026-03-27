@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   /* -- PRICE -- */
-  const price = document.querySelector('.price');
+  const price = document.querySelector('.price-block');
   if (price) {
     const titleArray = price.querySelectorAll('.price__categories__top');
     const contentArray = price.querySelectorAll('.price__categories__bottom');

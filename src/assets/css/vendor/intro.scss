@@ -78,6 +78,35 @@
     max-width: 600px;
   }
 
+  &__price {
+    color: #fff;
+    outline: 1px solid $primary-light-200-color;
+    position: relative;
+    padding: 25px 32px;
+    max-width: 182px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1rem, 0.4167rem + 1.3333vw, 1.25rem);
+
+    &::after {
+      content: 'Цена курса';
+      font-size: clamp(0.75rem, 0.4583rem + 0.6667vw, 0.875rem);
+      color: $primary-light-200-color;
+      position: absolute;
+      top: -8px;
+      z-index: 2;
+    }
+
+    @media (width<=900px) {
+      margin-block-start: 8px;
+      padding: 20px;
+      width: 100%;
+      max-width: none;
+    }
+  }
+
   &__advantages {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -110,6 +139,7 @@
           right: 80px;
           bottom: 540px;
         }
+
         @media screen and (width<=700px) {
           max-width: none;
         }
