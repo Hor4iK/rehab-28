@@ -29,10 +29,12 @@ $white-opacity-40-color: #ffffff66;
 $white-opacity-60-color: #ffffff99;
 $white-opacity-80-color: #ffffffcc;
 
-$gradient: linear-gradient(107.93deg,
-    #ea5992 1.44%,
-    #e47b86 50.72%,
-    #e5d1b0 100%);
+$gradient: linear-gradient(
+  107.93deg,
+  #ea5992 1.44%,
+  #e47b86 50.72%,
+  #e5d1b0 100%
+);
 $gradient-red: linear-gradient(90deg, #c2185b 0%, #ef4487 100%);
 $gradient-yellow: linear-gradient(180deg, #fcfaf7 0%, #fbeed8 100%);
 
@@ -91,7 +93,7 @@ body {
   font-family: "Grotesque", sans-serif;
   gap: 24px;
 
-  h2 {
+  h2, p {
     font-weight: inherit;
     font-size: clamp(2rem, -2.0833rem + 9.3333vw, 3.75rem);
     color: inherit;
@@ -116,6 +118,7 @@ body {
     font-size: clamp(0.75rem, 0.1667rem + 1.3333vw, 1rem);
     width: fit-content;
     line-height: 1;
+    box-shadow: 1px 2px 6px -3px #00000021;
 
     &::before {
       content: "";
@@ -154,7 +157,7 @@ html {
     scale: 1.05;
   }
 
-  &>div {
+  & > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,7 +177,7 @@ html {
     bottom: 0;
     border-radius: 15px;
 
-    &>div {
+    & > div {
       width: 52px;
     }
   }
@@ -222,10 +225,11 @@ html {
 }
 
 .input {
-  padding: 28px;
-  border-radius: 16px;
-  font-size: clamp(0.875rem, 0.5536rem + 0.8571vw, 1.25rem);
+  padding: 24px;
+  border-radius: 20px;
+  font-size: clamp(0.875rem, 0.7rem + 0.4vw, 1rem);
   outline: 1px solid transparent;
+  border: 1px solid $black-light-100-color;
   transition: outline 350ms;
 
   &:active,
@@ -242,7 +246,7 @@ html {
   }
 
   @media screen and (width<=800px) {
-    border-radius: 12px;
+    border-radius: 15px;
   }
 }
 
@@ -257,7 +261,9 @@ html {
   align-items: center;
   justify-content: center;
   outline: 1px solid transparent;
-  transition: scale 300ms, outline 300ms;
+  transition:
+    scale 300ms,
+    outline 300ms;
 
   &_52 {
     width: 52px;
@@ -290,7 +296,6 @@ html {
   }
 
   &_arrow {
-
     &::before {
       content: "";
       background-image: url(../img/icons/arrow-right.svg);
@@ -299,7 +304,9 @@ html {
       display: block;
       height: 14px;
       width: 7px;
-      transition: opacity 300ms, outline 300ms;
+      transition:
+        opacity 300ms,
+        outline 300ms;
       outline: 3px solid transparent;
     }
 
@@ -411,6 +418,12 @@ a.point-mark:hover {
     border: 1px solid $white-opacity-10-color;
   }
 
+  &_pink {
+    background-color: $primary-light-100-color;
+    border: 1px solid $primary-light-200-color;
+    color: $primary-color;
+  }
+
   &_tg {
     display: flex;
     align-items: center;
@@ -432,7 +445,7 @@ a.point-mark:hover {
       width: 14px;
       flex-shrink: 0;
       aspect-ratio: 1 / 1;
-      transition: transform .4s ease-in-out;
+      transition: transform 0.4s ease-in-out;
     }
   }
 
@@ -452,7 +465,7 @@ a.point-mark:hover {
     height: 12px;
     border-radius: 2px;
     transform: rotate(45deg);
-  
+
     &.swiper-pagination-bullet-active {
       background-color: $primary-color;
     }
@@ -483,8 +496,72 @@ a.point-mark:hover {
   position: relative;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Grotesque', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Grotesque", sans-serif;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(0.75rem, 0.575rem + 0.4vw, 0.875rem);
+  color: $black-secondary-color;
+  position: relative;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+  }
+
+  &-mark {
+    justify-content: center;
+    padding: 4px;
+    width: 20px;
+    border: 1px solid $primary-light-200-color;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
+    transition: 0.3s;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 8px;
+      background: url(../img/icons/check.svg) center center / cover
+        no-repeat;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+
+  input[type="checkbox"]:checked ~ .checkbox-mark {
+    background-color: $primary-light-100-color;
+  }
+
+  input[type="checkbox"]:checked ~ .checkbox-mark::before {
+    opacity: 1;
+  }
+
+  a {
+    text-decoration: underline;
+    color: $primary-color;
+  }
+}
+
+.checkbox-mark,
+.input__radio {
+  position: relative;
+  align-items: center;
+  display: flex;
 }
 
 @import "vendor/header";
@@ -495,7 +572,9 @@ h1, h2, h3, h4, h5 {
 @import "vendor/metodic";
 @import "vendor/text";
 @import "vendor/price";
+@import "vendor/calc-serv";
 @import "vendor/faq";
+@import "vendor/doctor";
 
 @import "vendor/footer";
 @import "vendor/animate";

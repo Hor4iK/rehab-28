@@ -33,7 +33,7 @@
     width: 260px;
     height: 160px;
     overflow: hidden;
-    display: block;
+    display: flex;
     border: 10px solid $secondary-light-300-color;
     border-top: none;
     border-bottom-left-radius: 30px;
@@ -43,13 +43,6 @@
     img {
       object-fit: cover;
       object-position: center center;
-    }
-
-    @media screen and (width<=900px) {
-      img {
-        width: 162px;
-        height: 100px;
-      }
     }
   }
 

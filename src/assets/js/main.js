@@ -364,7 +364,35 @@ document.addEventListener('DOMContentLoaded', function () {
     categoriesSwitch(price, categories, categoriesContent, ".price__category.active", ".price__list.active");
   }
   /* -- END PRICE -- */
-  
+
+
+  /* -- CALC-SERV -- */
+  const calcserv = document.querySelector('.calc-serv');
+  if (calcserv) {
+    const titleArray = calcserv.querySelectorAll('.calc-serv__categories__top');
+    const contentArray = calcserv.querySelectorAll('.calc-serv__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.calc-serv__categories', titleArray, contentArray);
+    }
+
+    const categories = calcserv.querySelectorAll('.calc-serv__category');
+    const listTitle = calcserv.querySelector('.calc-serv__categories__top');
+    const categoriesContent = calcserv.querySelectorAll(".calc-serv__list");
+
+    listTitle.textContent = categories[0].textContent;
+
+    categories.forEach(category => {
+      category.addEventListener('click', evt => {
+        const categoryTitle = evt.target.textContent;
+        listTitle.textContent = categoryTitle;
+      })
+    })
+
+    categoriesSwitch(calcserv, categories, categoriesContent, ".calc-serv__category.active", ".calc-serv__list.active");
+  }
+  /* -- END CALC-SERV -- */
+
 
   /* -- SLIDERS  -- */
 
@@ -426,6 +454,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  //Slider Doctors
+  doctorsSwiper = document.querySelector(".doctor-sl");
+  if (doctorsSwiper) {
+    doctorsSwiperCheck = new Swiper(doctorsSwiper.querySelector('.doctor-sl__slider'), {
+      direction: 'horizontal',
+      slidesPerView: 1.02,
+      grabCursor: true,
+      spaceBetween: 10,
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+          spaceBetween: 10
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 15
+        }
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+      navigation: {
+        nextEl: doctorsSwiper.querySelector('.slider-sl__next'),
+        prevEl: doctorsSwiper.querySelector('.slider-sl__prev'),
+      },
+    });
+  }
   /* -- END SLIDERS  -- */
 
 
