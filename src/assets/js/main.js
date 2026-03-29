@@ -488,6 +488,25 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     });
   }
+
+  //Slider Gallery in Liz-gal block
+  galSwiper = document.querySelector(".gal");
+  if (galSwiper) {
+    galSwiperCheck = new Swiper(galSwiper.querySelector('.gal__slider'), {
+      direction: 'horizontal',
+      slidesPerView: 1,
+      grabCursor: true,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+      navigation: {
+        nextEl: galSwiper.querySelector('.slider-sl__next'),
+        prevEl: galSwiper.querySelector('.slider-sl__prev'),
+      },
+    });
+  }
   /* -- END SLIDERS  -- */
 
 
