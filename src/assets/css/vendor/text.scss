@@ -32,10 +32,13 @@
     color: $black-color;
     line-height: 1.2;
 
-    &:not( :last-child,
+    &:not(
+      :last-child,
       .autocontent__top > p,
       .reviewer-block__desc > p,
-      .blockquote__author > p) {
+      .blockquote__author > p,
+      .table__wrapper p
+    ) {
       margin-block-end: clamp(1.5rem, 0.3333rem + 2.6667vw, 2rem);
     }
   }
@@ -107,21 +110,125 @@
     }
   }
 
-  .text__content>a {
+  .table {
+    border: 1px solid $secondary-light-300-color;
+    border-radius: 16px;
+    overflow: hidden;
+
+    &__desc {
+      margin-block-start: 20px;
+      font-size: clamp(0.75rem, 0.575rem + 0.4vw, 0.875rem);
+      color: $black-secondary-color;
+    }
+
+    &__wrapper {
+      margin-block: 32px;
+      max-width: 99vw;
+    }
+
+    @media (width<=1000px) {
+      overflow-x: auto;
+
+      &__wrapper {
+        margin-block: 24px;
+      }
+
+      table {
+        min-width: 960px;
+      }
+
+      &::-webkit-scrollbar {
+        height: 10px;
+
+        @media screen and (width<=500px) {
+          height: 5px;
+        }
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: $primary-light-100-color;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: $primary-color;
+      }
+    }
+  }
+
+  table {
+    background-color: $secondary-light-100-color;
+    border-spacing: 8px;
+
+    tr {
+      &:nth-child(even) td {
+        border-radius: 22px;
+        background-color: #fff;
+      }
+
+      td {
+        text-align: left;
+        padding: 24px;
+
+        @media (width<=1000px) {
+          padding: 20px;
+        }
+      }
+
+      th {
+        text-align: left;
+        padding: 24px;
+        font-weight: 500;
+
+        @media (width<=1000px) {
+          padding: 20px;
+        }
+      }
+    }
+
+    @media (width<=1000px) {
+      border-spacing: 4px;
+    }
+  }
+
+  .text__content > blockquote {
+    display: block;
+    border-radius: 30px;
+    background-color: $primary-light-100-color;
+    border: 1px solid $primary-light-200-color;
+    border-left: 10px solid $primary-color;
+    padding: 24px 24px 24px 32px;
+    margin-block: 32px;
+    position: relative;
+    left: 4px;
+    color: $black-color;
+
+    & > P {
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (width<=900px) {
+    }
+  }
+
+  .text__content > a {
     color: $primary-color;
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
     background-size: 0% 1px;
     background-position: 0 100%;
     background-repeat: no-repeat;
-    transition: color 0.2s ease, background-size 0.25s ease;
+    transition:
+      color 0.2s ease,
+      background-size 0.25s ease;
 
     &:hover {
       background-size: 100% 1px;
     }
   }
 
-  &>.container {
+  & > .container {
     display: flex;
     gap: 67px;
 
@@ -176,7 +283,7 @@
     cursor: pointer;
 
     p {
-      font-family: 'Grotesque', sans-serif;
+      font-family: "Grotesque", sans-serif;
       font-size: clamp(1.125rem, 0.25rem + 2vw, 1.5rem);
     }
 
@@ -409,7 +516,7 @@
       z-index: 1;
       width: 60px;
       border-radius: 10px;
-      left: clamp(1.5rem, -.8333rem + 5.3333vw, 2.5rem);
+      left: clamp(1.5rem, -0.8333rem + 5.3333vw, 2.5rem);
       bottom: 28px;
 
       @media (width<=347px) {
@@ -464,7 +571,7 @@
       }
     }
 
-    &>div {
+    & > div {
       display: flex;
       flex-wrap: wrap;
       gap: 4px;

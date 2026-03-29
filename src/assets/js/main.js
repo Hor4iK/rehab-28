@@ -352,16 +352,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const listTitle = price.querySelector('.price__categories__top');
     const categoriesContent = price.querySelectorAll(".price__list");
 
-    listTitle.textContent = categories[0].textContent;
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
 
-    categories.forEach(category => {
-      category.addEventListener('click', evt => {
-        const categoryTitle = evt.target.textContent;
-        listTitle.textContent = categoryTitle;
-      })
-    })
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
 
-    categoriesSwitch(price, categories, categoriesContent, ".price__category.active", ".price__list.active");
+        if (categoriesContent) categoriesSwitch(price, categories, categoriesContent, ".price__category.active", ".price__list.active");
+      }
+    }
+
+    
   }
   /* -- END PRICE -- */
 

@@ -152,14 +152,14 @@
     }
 
     @media (width<=1200px) {
-      &:not(:last-child) {
-        border-bottom: 1px solid $black-light-100-color;
-      }
-
       border-radius: 0;
       padding-block: 12px;
       width: 100%;
       color: $black-secondary-color;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $black-light-100-color;
+      }
 
       &:hover,
       &:focus {
