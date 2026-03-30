@@ -401,6 +401,7 @@
 
 .page {
   position: relative;
+  overflow-x: hidden;
 }
 
 @media screen and (width>1570px) {

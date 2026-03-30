@@ -53,6 +53,7 @@ body {
   overflow-x: hidden;
   margin: 0 auto;
   min-inline-size: 285px;
+  max-width: 100vw;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -264,6 +265,10 @@ html {
   transition:
     scale 300ms,
     outline 300ms;
+
+  &_40 {
+    width: clamp(2.25rem, 1.5208rem + 1.6667vw, 2.5625rem);
+  }
 
   &_52 {
     width: 52px;
@@ -482,7 +487,7 @@ a.point-mark:hover {
   border-radius: 60px;
   position: relative;
   z-index: 1;
-  margin-block: clamp(-2.5rem, 0.4167rem + -6.6667vw, -3.75rem);
+  margin-block: clamp(-3.5rem, 0.4167rem + -6.6667vw, -3.75rem);
   padding-block: clamp(3.75rem, -10.8333rem + 33.3333vw, 10rem);
 
   @media screen and (width<=900px) {
@@ -576,6 +581,8 @@ h5 {
 @import "vendor/faq";
 @import "vendor/doctor";
 @import "vendor/liz-gal";
+@import "vendor/form";
+
 
 @import "vendor/footer";
 @import "vendor/animate";

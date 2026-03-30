@@ -1,0 +1,226 @@
+.free-help {
+  padding-inline: $padding;
+
+  &__inner {
+    background: url(../img/sections/free-help-bg.webp), $gradient;
+    border-radius: 30px;
+    padding: 40px 40px 32px 64px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+
+    &>div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+
+      @media (width<=900px) {
+        padding-inline: 16px;
+      }
+    }
+
+    @media (width<=900px) {
+      padding: 36px 8px 8px;
+      border-radius: 25px;
+      flex-direction: column;
+      background: $gradient;
+    }
+  }
+
+  &__title {
+    align-items: start;
+    color: #fff;
+    gap: 24px;
+    margin-block-end: clamp(1.75rem, -2rem + 4vw, 2.5rem);
+
+    span {
+      &::before {
+        filter: brightness(15);
+      }
+    }
+
+    p {
+      margin-block-end: 0;
+      text-align: left;
+    }
+  }
+
+  &__desc {
+    color: $white-opacity-80-color;
+  }
+
+  &__advs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__adv {
+    border: 1px solid $white-opacity-10-color;
+    background-color: $white-opacity-10-color;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    width: fit-content;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    gap: 12px;
+
+    @media screen and (width<=700px) {
+      width: 100%;
+      border-radius: 15px;
+      padding: 8px;
+    }
+  }
+}
+
+.our-chance {
+  padding-inline: $padding;
+
+  &__inner {
+    background: url(../img/sections/free-help-bg.webp), $gradient;
+    border-radius: 30px;
+    padding: 40px 40px 32px 64px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+
+    &>div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+
+      @media (width<=900px) {
+        padding-inline: 16px;
+      }
+    }
+
+    @media (width<=900px) {
+      padding: 36px 8px 8px;
+      border-radius: 25px;
+      flex-direction: column;
+      background: $gradient;
+    }
+  }
+
+  &__title {
+    align-items: start;
+    color: #fff;
+    gap: 24px;
+    margin-block-end: clamp(1.75rem, -2rem + 4vw, 2.5rem);
+
+    span {
+      &::before {
+        filter: brightness(15);
+      }
+    }
+
+    p {
+      margin-block-end: 0;
+      text-align: left;
+    }
+  }
+
+  &__desc {
+    color: $white-opacity-80-color;
+  }
+
+  &__phone {
+    border: 1px solid $white-opacity-10-color;
+    background-color: $white-opacity-10-color;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    width: fit-content;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    gap: 12px;
+    font-weight: 600;
+    font-size: clamp(1.125rem, -0.9167rem + 4.6667vw, 2rem);
+
+    @media screen and (width<=700px) {
+      width: 100%;
+      border-radius: 15px;
+      padding: 8px;
+    }
+  }
+}
+
+.form {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 44px;
+
+  &__logo {
+    position: relative;
+    justify-content: flex-start;
+    margin-block-end: 40px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 14px;
+      background-image: url(../img/icons/cuboid.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 0;
+
+      @media (width<=900px) {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    @media (width<=900px) {
+      margin-block-end: 28px;
+    }
+  }
+
+  &__desc {
+    font-size: clamp(0.875rem, 0.5833rem + 0.6667vw, 1rem);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-block-end: 28px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-block-end: 24px;
+
+    @media (width<=900px) {
+      gap: 8px;
+      margin-block-end: 8px;
+    }
+  }
+
+  &__btn {
+    margin-block-start: 24px;
+    max-width: 180px;
+    justify-content: space-between;
+
+    &::after {
+      background-image: url(../img/icons/three-point-right.svg);
+      filter: brightness(10);
+    }
+
+    @media (width<=900px) {
+      max-width: none;
+      margin-block-start: 16px;
+    }
+  }
+
+  @media (width<=900px) {
+    padding: 16px;
+    border-radius: 17px;
+  }
+}
