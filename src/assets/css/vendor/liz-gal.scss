@@ -12,6 +12,8 @@
   align-items: center;
 
   .section-title {
+    margin-block-end: 40px;
+
     h2,
     p,
     span {
@@ -19,6 +21,10 @@
     }
     span::before {
       filter: brightness(10);
+    }
+
+    @media (width<=900px) {
+      margin-block-end: 28px;
     }
   }
 

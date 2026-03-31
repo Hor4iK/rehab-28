@@ -186,7 +186,8 @@ textarea:focus {
 }
 
 input,
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
     font-size: inherit;
     font-weight: 400;
     font-family: inherit;
@@ -194,7 +195,8 @@ input::placeholder {
     outline: none;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: inherit
 }
 

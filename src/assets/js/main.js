@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (!headerAll.classList.contains('fixed')) {
             headerAll.classList.add('fixed');
           }
-          main.style.marginTop = headerHeight + 'px';
+          main.style.marginTop = headerHeight + 20 + 'px';
           //main.style.marginBottom = '-' + headerHeight + 'px';
         } else {
           headerAll.classList.remove('fixed');
@@ -367,9 +367,43 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    
+
   }
   /* -- END PRICE -- */
+
+
+  /* -- FAQ-PAGE -- */
+  const faqPage = document.querySelector('.faq-page');
+  if (faqPage) {
+    const titleArray = faqPage.querySelectorAll('.faq-page__categories__top');
+    const contentArray = faqPage.querySelectorAll('.faq-page__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.faq-page__categories', titleArray, contentArray);
+    }
+
+    const categories = faqPage.querySelectorAll('.faq-page__category');
+    const listTitle = faqPage.querySelector('.faq-page__categories__top');
+    const categoriesContent = faqPage.querySelectorAll(".faq__content");
+
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
+
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
+
+        if (categoriesContent) categoriesSwitch(faqPage, categories, categoriesContent, ".faq-page__category.active", ".faq__content.active");
+      }
+    }
+
+
+  }
+  /* -- END FAQ-PAGE -- */
 
 
   /* -- CALC-SERV -- */
@@ -421,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: metodicSwiper.querySelector('.swiper-pagination'),
         type: 'bullets',
       }
     });
@@ -479,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: doctorsSwiper.querySelector('.swiper-pagination'),
         type: 'bullets',
       },
       navigation: {
@@ -498,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function () {
       grabCursor: true,
       spaceBetween: 10,
       pagination: {
-        el: '.swiper-pagination',
+        el: galSwiper.querySelector('.swiper-pagination'),
         type: 'bullets',
       },
       navigation: {
@@ -506,6 +540,24 @@ document.addEventListener('DOMContentLoaded', function () {
         prevEl: galSwiper.querySelector('.slider-sl__prev'),
       },
     });
+  }
+
+  //Slider Allocator page
+  allocatorCats = document.querySelectorAll('.allocator__category');
+  if (allocatorCats && allocatorCats.length > 0) {
+    allocatorCats.forEach(category => {
+      categoryCheck = new Swiper(category.querySelector('.allocator__slider'), {
+        direction: 'horizontal',
+        slidesPerView: 1,
+        grabCursor: true,
+        spaceBetween: 10,
+        pagination: {
+          el: category.querySelector('.swiper-pagination'),
+          type: 'bullets',
+        },
+      });
+    })
+
   }
   /* -- END SLIDERS  -- */
 

@@ -1,0 +1,126 @@
+.allocator {
+  padding-inline: $padding;
+
+  &__title {
+    font-family: "Grotesque", sans-serif;
+    font-size: clamp(1.75rem, 0.35rem + 3.2vw, 2.75rem);
+    margin-block-end: clamp(1.25rem, -0.5rem + 4vw, 2.5rem);
+    max-width: 80%;
+  }
+
+  &__category {
+    overflow: hidden;
+    position: relative;
+    padding-block-end: 64px;
+
+    .swiper-pagination {
+      position: absolute;
+      top: 0 !important;
+      left: auto !important;
+      bottom: auto !important;
+      right: 0 !important;
+      width: auto !important;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $black-light-100-color;
+      margin-block-end: 64px;
+    }
+
+    @media (width<=900px) {
+      padding-block-end: 28px;
+
+      &:not(:last-child) {
+        margin-block-end: 28px;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 365px);
+    grid-template-rows: 200px;
+    grid-auto-rows: 200px;
+    gap: 20px;
+
+    @media (width<=900px) {
+      grid-template-columns: repeat(auto-fit, 300px);
+      grid-template-rows: 161px;
+      grid-auto-rows: 161px;
+      gap: 8px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+    background-color: #fff;
+    border: 1px solid $black-light-100-color;
+    border-radius: 20px;
+    box-shadow: 1px 2px 6px -3px rgba(0, 0, 0, 0.1294117647);
+    transition: scale 300ms ease-out;
+
+    .allocator__point {
+      width: 34px;
+      aspect-ratio: 1/1;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $primary-light-100-color;
+      transition: background-color 300ms ease-in-out;
+      position: absolute;
+      top: 28px;
+      right: 28px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        background-image: url(../img/icons/three-point-right.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition:
+          transform 400ms ease-in-out,
+          filter 300ms;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      scale: 1.035;
+
+      .allocator__point {
+        background-color: $primary-color;
+
+        &::before {
+          filter: brightness(10);
+        }
+      }
+    }
+
+    &__title {
+      max-width: 80%;
+      font-weight: 500;
+      font-size: clamp(1rem, 0.65rem + 0.8vw, 1.25rem);
+    }
+
+    &__desc {
+      color: $black-secondary-color;
+      font-size: clamp(0.875rem, 0.7rem + 0.4vw, 1rem);
+    }
+
+    @media (width<=900px) {
+      padding: 20px;
+
+      .allocator__point {
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+}
