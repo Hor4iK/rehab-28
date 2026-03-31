@@ -1,0 +1,30 @@
+.contacts {
+  &__title {
+    margin-block-end: 40px;
+
+    @media (width<=900px) {
+      margin-block-end: 28px;
+    }
+  }
+  
+  &__top {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      gap: 10px;
+    }
+  }
+
+  &__taxi {
+  }
+
+  &__route {
+  }
+}
