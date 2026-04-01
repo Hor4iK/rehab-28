@@ -498,8 +498,12 @@ a.point-mark:hover {
 
 .section-content--orange {
   background-color: $secondary-light-100-color;
-  padding-block: clamp(3.75rem, -10.8333rem + 33.3333vw, 10rem);
+  padding-block: 10rem;
   position: relative;
+
+  @media screen and (width<=900px) {
+    padding-block: 7rem;
+  }
 }
 
 .breadcrumbs {
@@ -675,6 +679,7 @@ h5 {
 @import "vendor/doctors";
 @import "vendor/allocator";
 @import "vendor/contacts";
+@import "vendor/reviews";
 
 @import "vendor/footer";
 @import "vendor/animate";

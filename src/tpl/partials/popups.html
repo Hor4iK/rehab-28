@@ -54,3 +54,49 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  /* yandex map */
+  const map = document.querySelectorAll('#map');
+  if (map.length > 0) {
+    function onEntryMap(e) {
+      e.forEach(e => {
+        e.isIntersecting && loadMap() && initMap();
+      })
+    }
+    let options = {
+      threshold: [0.5],
+    },
+      observer = new IntersectionObserver(onEntryMap, options)
+    for (let e of map) observer.observe(e)
+  }
+  function loadMap() {
+    if (!document.querySelector('[src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"]')) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+      script.onload = initMap;
+      document.head.appendChild(script);
+    }
+  }
+  function initMap() {
+    ymaps.ready(function () {
+      const myMap = new ymaps.Map('map', {
+        center: [45.056059, 38.931349],
+        zoom: 15,
+        controls: []
+      });
+      const myPlacemark = new ymaps.Placemark(
+        [45.056059, 38.931349],
+        {
+          hintContent: 'г. Краснодар, улица Красных Партизан, 6/2к1',
+          balloonContent: 'г. Краснодар, улица Красных Партизан, 6/2к1'
+        },
+      );
+      myMap.geoObjects.add(myPlacemark);
+      myMap.behaviors.disable(['scrollZoom']);
+    });
+  }
+  /* end yandex map */
+</script>

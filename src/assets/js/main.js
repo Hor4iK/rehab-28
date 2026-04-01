@@ -559,6 +559,37 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
   }
+
+  //Slider reviews-sl
+  reviews = document.querySelector(".reviews-sl");
+  if (reviews) {
+    const reviewsList = reviews.querySelector('.reviews__list');
+    reviewsCheck = false;
+    ['resize', 'load'].forEach((event) => {
+      window.addEventListener(event, function () {
+        if (window.innerWidth <= 700 && !reviewsCheck) {
+          reviewsList.classList.add('swiper-wrapper');
+          reviewsCheck = new Swiper(reviews.querySelector('.reviews__slider'), {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            grabCursor: true,
+            spaceBetween: 8,
+            pagination: {
+              el: reviews.querySelector('.swiper-pagination'),
+              type: 'bullets',
+            },
+          });
+        }
+        if (window.innerWidth > 700 && reviewsCheck) {
+          reviewsCheck.destroy(true, true);
+          reviewsCheck = false;
+          reviewsList.classList.remove('swiper-wrapper');
+        }
+      })
+    })
+
+
+  }
   /* -- END SLIDERS  -- */
 
 
