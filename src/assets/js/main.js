@@ -406,6 +406,77 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END FAQ-PAGE -- */
 
 
+  /* -- REVIEWS-PAGE -- */
+  const reviewsPage = document.querySelector('.reviews-page');
+  if (reviewsPage) {
+    const titleArray = reviewsPage.querySelectorAll('.reviews-page__categories__top');
+    const contentArray = reviewsPage.querySelectorAll('.reviews-page__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.reviews-page__categories', titleArray, contentArray);
+    }
+
+    const categories = reviewsPage.querySelectorAll('.reviews-page__category');
+    const listTitle = reviewsPage.querySelector('.reviews-page__categories__top');
+    const categoriesContent = reviewsPage.querySelectorAll(".reviews__list");
+
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
+
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
+
+        if (categoriesContent) categoriesSwitch(reviewsPage, categories, categoriesContent, ".reviews-page__category.active", ".reviews__list.active");
+      }
+    }
+  }
+
+  const reviewsBlock = document.querySelector('.reviews-page, .reviews');
+  if (reviewsBlock) {
+    const reviewItems = reviewsBlock.querySelectorAll('.reviews__item');
+
+    function initReviewItem(reviewItem) {
+      const textBlock = reviewItem.querySelector('.reviews__content > p');
+      const button = reviewItem.querySelector('.reviews__btn-more');
+
+      function updateButtonVisibility() {
+        const wasActive = textBlock.classList.contains('active');
+        textBlock.classList.remove('active');
+        const contentHeight = textBlock.scrollHeight;
+        if (wasActive) {
+          textBlock.classList.add('active');
+        }
+        if (contentHeight > 300) {
+          button.style.display = 'flex';
+          if (!button.hasAttribute('data-listener-attached')) {
+            button.setAttribute('data-listener-attached', 'true');
+            button.addEventListener('click', function () {
+              textBlock.classList.toggle('active');
+              button.textContent = textBlock.classList.contains('active')
+                ? 'Свернуть'
+                : 'Смотреть полностью';
+            });
+          }
+        } else {
+          button.style.display = 'none';
+          textBlock.classList.remove('active');
+          button.textContent = 'Смотреть полностью';
+        }
+      }
+      updateButtonVisibility();
+    }
+    if (reviewItems.length > 0) {
+      reviewItems.forEach(initReviewItem);
+    }
+  }
+  /* -- END REVIEWS-PAGE -- */
+
+
   /* -- CALC-SERV -- */
   const calcserv = document.querySelector('.calc-serv');
   if (calcserv) {
