@@ -477,6 +477,41 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END REVIEWS-PAGE -- */
 
 
+  /* -- ARTICLES-PAGE -- */
+  const articlesPage = document.querySelector('.articles');
+  if (articlesPage) {
+    const titleArray = articlesPage.querySelectorAll('.articles__categories__top');
+    const contentArray = articlesPage.querySelectorAll('.articles__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.articles__categories', titleArray, contentArray);
+    }
+
+    const categories = articlesPage.querySelectorAll('.articles__category');
+    const listTitle = articlesPage.querySelector('.articles__categories__top');
+    const categoriesContent = articlesPage.querySelectorAll(".articles__list");
+
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
+
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
+
+        if (categoriesContent) categoriesSwitch(articlesPage, categories, categoriesContent, ".articles__category.active", ".articles__list.active");
+      }
+    }
+
+
+  }
+  /* -- END ARTICLES-PAGE -- */
+
+
+
   /* -- CALC-SERV -- */
   const calcserv = document.querySelector('.calc-serv');
   if (calcserv) {
