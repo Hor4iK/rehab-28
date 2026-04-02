@@ -573,6 +573,37 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END GALLERY-PAGE -- */
 
 
+  /* -- OFFERS-PAGE -- */
+  const offersPage = document.querySelector('.offers-page');
+  if (offersPage) {
+    const titleArray = offersPage.querySelectorAll('.offers-page__categories__top');
+    const contentArray = offersPage.querySelectorAll('.offers-page__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.offers__categories', titleArray, contentArray);
+    }
+
+    const categories = offersPage.querySelectorAll('.offers-page__category');
+    const listTitle = offersPage.querySelector('.offers-page__categories__top');
+    const categoriesContent = offersPage.querySelectorAll(".offers-page__list");
+
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
+
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
+
+        if (categoriesContent) categoriesSwitch(offersPage, categories, categoriesContent, ".offers-page__category.active", ".offers-page__list.active");
+      }
+    }
+  }
+  /* -- END OFFERS-PAGE -- */
+
 
   /* -- SLIDERS  -- */
 

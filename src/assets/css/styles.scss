@@ -393,6 +393,11 @@ html {
     @include point-mark-psevdo;
     background-image: url(../img/icons/map-red.svg);
   }
+
+  &.point-mark-procent::before {
+    @include point-mark-psevdo;
+    background-image: url(../img/icons/procent.webp);
+  }
 }
 
 a.point-mark:hover {
