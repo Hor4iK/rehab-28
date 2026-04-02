@@ -605,6 +605,77 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END OFFERS-PAGE -- */
 
 
+  /* -- PRICE-PAGE -- */
+  const pricePage = document.querySelector('.price-page');
+  if (pricePage) {
+    const titleArray = pricePage.querySelectorAll('.price-page__categories__top');
+    const contentArray = pricePage.querySelectorAll('.price-page__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.price__categories', titleArray, contentArray);
+    }
+
+    const categories = pricePage.querySelectorAll('.price-page__category');
+    const listTitle = pricePage.querySelector('.price-page__categories__top');
+    const categoriesContent = pricePage.querySelectorAll(".price-page__wrapper");
+
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
+
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
+
+        if (categoriesContent) categoriesSwitch(pricePage, categories, categoriesContent, ".price-page__category.active", ".price-page__wrapper.active");
+      }
+    }
+
+    ['resize', 'load'].forEach((event) => {
+      window.addEventListener(event, function () {
+        if (window.innerWidth <= 900) {
+          const pricesItems = pricePage.querySelectorAll('.price-page__item');
+
+          function initPricesItem(priceItem) {
+            const textBlock = priceItem.querySelector('.price-page__item__desc');
+            const button = priceItem.querySelector('.price-page__item__btn');
+
+            function updateButtonVisibility() {
+              const wasActive = textBlock.classList.contains('active');
+              textBlock.classList.remove('active');
+              const contentHeight = textBlock.scrollHeight;
+              if (wasActive) {
+                textBlock.classList.add('active');
+              }
+              if (contentHeight > 0) {
+                button.style.display = 'flex';
+                if (!button.hasAttribute('data-listener-attached')) {
+                  button.setAttribute('data-listener-attached', 'true');
+                  button.addEventListener('click', function () {
+                    textBlock.classList.toggle('active');
+                    button.classList.toggle('active');
+                  });
+                }
+              } else {
+                button.style.display = 'none';
+                textBlock.classList.remove('active');
+              }
+            }
+            updateButtonVisibility();
+          }
+          if (pricesItems.length > 0) {
+            pricesItems.forEach(initPricesItem);
+          }
+        }
+      })
+    })
+  }
+  /* -- END PRICE-PAGE -- */
+
+
   /* -- SLIDERS  -- */
 
   //Slider Metodics
