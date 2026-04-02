@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   }
 
-  //Slider reviews-sl
+  //Slider reviews-sl turn on when mobile 700
   reviews = document.querySelector(".reviews-sl");
   if (reviews) {
     const reviewsList = reviews.querySelector('.reviews__list');
@@ -695,6 +695,35 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 
+  }
+
+  //Slider services-sl turn on when mobile 700
+  services = document.querySelector(".services-sl");
+  if (services) {
+    const servicesList = services.querySelector('.services-sl__list');
+    servicesCheck = false;
+    ['resize', 'load'].forEach((event) => {
+      window.addEventListener(event, function () {
+        if (window.innerWidth <= 700 && !servicesCheck) {
+          servicesList.classList.add('swiper-wrapper');
+          servicesCheck = new Swiper(services.querySelector('.services-sl__slider'), {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            grabCursor: true,
+            spaceBetween: 8,
+            pagination: {
+              el: services.querySelector('.swiper-pagination'),
+              type: 'bullets',
+            },
+          });
+        }
+        if (window.innerWidth > 700 && servicesCheck) {
+          servicesCheck.destroy(true, true);
+          servicesCheck = false;
+          servicesList.classList.remove('swiper-wrapper');
+        }
+      })
+    })
   }
   /* -- END SLIDERS  -- */
 
