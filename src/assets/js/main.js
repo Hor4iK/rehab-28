@@ -406,6 +406,35 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END FAQ-PAGE -- */
 
 
+  /* -- form-raschet дшые -- */
+  const raschet = document.querySelector('.form-raschet');
+  if (raschet) {
+    const titleArray = raschet.querySelectorAll('.form-raschet__categories__top');
+    const contentArray = raschet.querySelectorAll('.form-raschet__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.form-raschet__categories', titleArray, contentArray);
+    }
+
+    const categories = raschet.querySelectorAll('.form-raschet__category');
+    const listTitle = raschet.querySelector('.form-raschet__categories__top');
+
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
+
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
+      }
+    }
+  }
+  /* -- END form-raschet дшые -- */
+
+
   /* -- REVIEWS-PAGE -- */
   const reviewsPage = document.querySelector('.reviews-page');
   if (reviewsPage) {

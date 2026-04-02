@@ -1,0 +1,50 @@
+<div class="form-raschet">
+  <div class="container">
+    <div class="form-raschet__inner">
+      <div>
+        <div class="section-title form-raschet__title">
+          <span>Расчет</span>
+          <p>Индивидуальный расчет стоимости</p>
+        </div>
+        <div class="form-raschet__desc">Оставьте заявку и наш специалист рассчитает для вас точную стоимость лечения с
+          учетом всех индивидуальных особенностей и потребностей</div>
+      </div>
+      <form class="form form-raschet__form">
+        <div href="/" class="form__logo logo">
+          <picture class="logo__picture">
+            <source srcset="/assets/img/logo/logo.webp" type="image/webp">
+            <source srcset="/assets/img/logo/logo.svg" type="image/svg+xml">
+            <img src="/assets/img/logo/logo.png" alt="Логотип">
+          </picture>
+          <div class="logo__title">
+            <span>Дней</span>
+            <span>Реабилитационный центр</span>
+          </div>
+        </div>
+        <div class="form__inputs">
+          <input type="text" class="input" placeholder="Имя" name="params[text][]" required="">
+          <input type="tel" class="input" placeholder="Номер телефона" name="params[phone][]" required="">
+          <div class="form-raschet__categories">
+            <div class="form-raschet__categories__top">Реабилитация</div>
+            <div class="form-raschet__categories__bottom">
+              <div class="form-raschet__category">Реабилитация</div>
+              <div class="form-raschet__category">Лечение в стационаре</div>
+              <div class="form-raschet__category">Выездные услуги</div>
+            </div>
+          </div>
+          <textarea rows="3" class="input" placeholder="Опишите свою ситуацию" name="params[message][]"
+            required=""></textarea>
+        </div>
+        <label class="checkbox">
+          <input type="checkbox" checked="checked" required="">
+          <span class="checkbox-mark"></span>
+          <span>Я соглашаюсь на переда чу персональных данных согласно <a href="/politika-konfidentsialnosti/"
+              rel="nofollow">политике конфиденциальности</a> и <a href="#">пользовательскому соглашению</a></span>
+        </label>
+        <button href="#" class="btn form__btn btn_primary btn_point">
+          <span>Получить расчет </span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
