@@ -511,7 +511,6 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END ARTICLES-PAGE -- */
 
 
-
   /* -- CALC-SERV -- */
   const calcserv = document.querySelector('.calc-serv');
   if (calcserv) {
@@ -538,6 +537,41 @@ document.addEventListener('DOMContentLoaded', function () {
     categoriesSwitch(calcserv, categories, categoriesContent, ".calc-serv__category.active", ".calc-serv__list.active");
   }
   /* -- END CALC-SERV -- */
+
+
+  /* -- GALLERY-PAGE -- */
+  const galleryPage = document.querySelector('.gallery');
+  if (galleryPage) {
+    const titleArray = galleryPage.querySelectorAll('.gallery__categories__top');
+    const contentArray = galleryPage.querySelectorAll('.gallery__categories__bottom');
+
+    if (titleArray && contentArray) {
+      tabs('.gallery__categories', titleArray, contentArray);
+    }
+
+    const categories = galleryPage.querySelectorAll('.gallery__category');
+    const listTitle = galleryPage.querySelector('.gallery__categories__top');
+    const categoriesContent = galleryPage.querySelectorAll(".gallery__list");
+
+    if (listTitle) {
+      listTitle.textContent = categories[0].textContent;
+
+      if (categories) {
+        categories.forEach(category => {
+          category.addEventListener('click', evt => {
+            const categoryTitle = evt.target.textContent;
+            listTitle.textContent = categoryTitle;
+          })
+        });
+
+        if (categoriesContent) categoriesSwitch(galleryPage, categories, categoriesContent, ".gallery__category.active", ".gallery__list.active");
+      }
+    }
+
+
+  }
+  /* -- END GALLERY-PAGE -- */
+
 
 
   /* -- SLIDERS  -- */
