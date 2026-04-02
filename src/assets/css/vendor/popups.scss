@@ -133,8 +133,6 @@
   }
 }
 
-
-/*POLICY-PLASHKA*/
 .bottom-info__wrapper {
   position: fixed;
   max-width: 960px;
@@ -191,7 +189,9 @@
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;
   background-repeat: no-repeat;
-  transition: color 0.3s ease, background-size 0.25s ease;
+  transition:
+    color 0.3s ease,
+    background-size 0.25s ease;
   background-size: 100% 1px;
 }
 
@@ -277,4 +277,171 @@
   color: #fff;
 }
 
-/*POLICY-PLASHKA*/
+.converse-card {
+  position: fixed;
+  transform: translateY(50%);
+  bottom: 50%;
+  right: 3vw;
+  z-index: 5;
+  transition: 0.5s;
+
+  @media (width<=900px) {
+    bottom: 222px;
+  }
+}
+
+.converse-card_hide {
+  right: -110%;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.converse-card__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  justify-content: center;
+  position: relative;
+}
+
+.converse-card__item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  background: $gradient-red;
+  padding: 6px;
+  border-radius: 20px;
+  transition: max-width 400ms ease-out;
+  cursor: pointer;
+  color: #fff;
+  aspect-ratio: auto;
+  height: 64px;
+  max-width: 64px;
+  width: 100%;
+  border: none;
+  overflow: hidden;
+
+  .point-mark {
+    width: 50px;
+    border: none;
+    outline: 1px solid $white-opacity-40-color;
+
+    @media (width<=900px) {
+      width: 40px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    max-width: 235px;
+
+    @media (width<=900px) {
+      max-width: 198px;
+    }
+  }
+
+  p {
+    width: max-content;
+  }
+
+  @media (width<=900px) {
+    max-width: 52px;
+    height: 52px;
+    border-radius: 15px;
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.converse-card__item svg {
+  flex-shrink: 0;
+  scale: 0.75;
+}
+
+.converse-card__button {
+  transition: 0.3s;
+  background: linear-gradient(90deg, #c2185b 0, #ef4487 100%);
+  border-radius: 15px;
+  padding: 6px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  z-index: 2;
+}
+
+.converse-card__container .converse-card__button {
+  svg {
+    rotate: 45deg;
+  }
+}
+
+.converse-card__button_plus {
+  right: 3vw;
+  bottom: 76px;
+  position: fixed;
+
+  .point-mark svg {
+    transition: rotate 200ms ease-out;
+  }
+
+  &.converse-card__button--active .point-mark svg {
+      rotate: 45deg;
+  }
+
+  @media (width>900px) {
+    display: none;
+  }
+}
+
+.converse-card__back-button {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.converse-card__back-button .converse-card__container {
+  background-color: transparent;
+  border: none;
+}
+
+.converse-card__back-button_hide {
+  bottom: -110%;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.converse-card__back-button button {
+  background-color: #fff;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@media (width>900px) {
+  .converse-card__button {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .converse-card__back-button {
+    padding-bottom: 15px;
+  }
+
+  .converse-card__icon {
+    padding: 3px 0;
+    width: 24px;
+    height: 30px;
+  }
+}

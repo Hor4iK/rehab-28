@@ -705,6 +705,25 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- END PRICE-PAGE -- */
 
 
+  /* -- WIDGET -- */
+  const converseButtons = document.querySelectorAll('.converse-card__button');
+  if (converseButtons) {
+    converseButtons.forEach(converseButton => {
+      converseButton.addEventListener("click", function () {
+        const converseCard = document.querySelector(".converse-card");
+        if (converseCard) {
+          converseCard.classList.toggle("converse-card_hide");
+        }
+        const converseBtn = document.querySelector(".converse-card__button_plus");
+        if(converseBtn) {
+          converseBtn.classList.toggle("converse-card__button--active");
+        }
+      })
+    });
+  }
+  /* -- END WIDGET -- */
+
+
   /* -- SLIDERS  -- */
 
   //Slider Metodics

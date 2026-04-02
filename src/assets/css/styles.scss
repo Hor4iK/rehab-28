@@ -148,7 +148,7 @@ html {
   pointer-events: none;
   position: fixed;
   bottom: 40px;
-  right: 40px;
+  right: 3vw;
   z-index: 5;
   cursor: pointer;
   transition:
@@ -178,8 +178,7 @@ html {
   }
 
   @media (max-width: 900px) {
-    right: 20px;
-    bottom: 0;
+    bottom: 10px;
     border-radius: 15px;
 
     & > div {
