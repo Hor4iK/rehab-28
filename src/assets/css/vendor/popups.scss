@@ -36,7 +36,7 @@
 
 .popup__content {
   width: 100%;
-  max-width: 900px;
+  max-width: 600px;
   border-radius: 30px;
   position: relative;
   padding: 40px 50px 50px;
@@ -57,32 +57,25 @@
 
 .close-popup {
   position: absolute;
-  width: 25px;
+  width: 32px;
   aspect-ratio: 1/1;
-  top: 30px;
-  right: 30px;
-  transition: transform 300ms ease-out;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $black-light-100-color;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: transform 200ms ease-out;
+  z-index: 2;
 
-  &:hover {
-    transform: rotateZ(-90deg) scale(1.14);
-  }
-
-  &::before {
-    content: "";
-    width: 30px;
-    height: 1px;
-    display: block;
-    background-color: #133a6633;
+  svg {
     rotate: 45deg;
   }
 
-  &::after {
-    content: "";
-    width: 30px;
-    height: 1px;
-    display: block;
-    background-color: #133a6633;
-    rotate: -45deg;
+  &:hover {
+    transform: scale(1.06);
   }
 
   @media screen and (width<=800px) {
@@ -91,13 +84,50 @@
   }
 }
 
-.popup__title {
-  max-width: 700px;
+.popup__title,
+.result-wrapper h3 {
+  font-family: "Grotesque", sans-serif;
+  font-size: clamp(1.75rem, 1.6881rem + 1.4159vw, 2.75rem);
+  margin-block-end: 24px;
+
+  @media (width<=900px) {
+    margin-block-end: 20px;
+  }
 }
 
-.popup__subtitle {
-  max-width: 700px;
+.result-wrapper h3 {
+  line-height: 1;
+  margin-block-end: 16px;
+}
+
+.result-wrapper h3,
+.result-wrapper p {
+  text-align: center;
+}
+
+.popup__subtitle,
+.result-wrapper p {
   opacity: 0.65;
+}
+
+.popup__btn {
+  padding: 24px;
+  background-color: #fbf6f8;
+  color: #c3185d;
+  font-size: clamp(0.875rem, 0.5833rem + 0.6667vw, 1rem);
+  border: 1px solid #f3d1de;
+  outline: transparent solid 1px;
+  margin-inline: auto;
+  position: static;
+  width: fit-content;
+  aspect-ratio: auto;
+  margin-block-start: 28px;
+
+  @media (width <= 900px) {
+    padding: 20px 16px;
+    width: 100%;
+    margin-block-start: 20px;
+  }
 }
 
 .popup__button {
@@ -117,19 +147,121 @@
   }
 }
 
-.popup__form {
-  margin-block: 40px 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.popup .form {
+  padding: 0;
+  border-radius: 0;
+  background: none;
 
-  input {
-    background-color: #fff;
+  .form__logo::after {
+    content: none;
+  }
+}
+
+.popup__pic {
+  display: flex;
+  justify-content: center;
+  margin-block-end: 20px;
+}
+
+.popup {
+  .search__offers {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 12px;
+        position: relative;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 32px;
+          height: 32px;
+          border-radius: 10px;
+          background:
+            url(../img/icons/map-red.svg) no-repeat center center/50%,
+            $primary-light-100-color;
+          border: 1px solid $primary-light-200-color;
+        }
+
+        &.active {
+          &::before {
+            background:
+              url(../img/icons/map.svg) no-repeat center center/50%,
+              $primary-color;
+          }
+        }
+
+        a {
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+
+      @media (width<=900px) {
+        grid-template-columns: repeat(1, 1fr);
+
+        li {
+          gap: 8px;
+
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
   }
 
-  @media screen and (width<=800px) {
-    margin-block: 30px;
-    grid-template-columns: 1fr;
+  .search__offers__title {
+    color: $black-light-color;
+    line-height: 1;
+    margin-block: 20px;
+    font-size: clamp(0.75rem, 0.7423rem + 0.177vw, 0.875rem);
+  }
+
+  .search {
+    margin: 0;
+    border: none;
+  }
+
+  .search__form {
+    border-bottom: 1px solid #f2f2f2;
+    margin-block-end: 10px;
+  }
+
+  .search__results {
+    max-height: 200px;
+    width: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+
+      @media screen and (width<=500px) {
+        width: 5px;
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $primary-light-100-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: $primary-color;
+    }
+
+    a {
+      @media (width<=900px) {
+        font-size: 14px;
+      }
+    }
   }
 }
 
@@ -390,7 +522,7 @@
   }
 
   &.converse-card__button--active .point-mark svg {
-      rotate: 45deg;
+    rotate: 45deg;
   }
 
   @media (width>900px) {

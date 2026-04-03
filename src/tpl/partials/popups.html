@@ -63,41 +63,159 @@
 <div class="popup" data-target="popup-consult">
   <div class="popup__body">
     <div class="popup__content">
-      <button class="close-popup"></button>
-
-      <p class="popup__title main-title">
-        Бесплатная консультация специалиста — <span><br>это первый шаг!</span>
-      </p>
-      <p class="popup__subtitle">
-        Оставьте заявку, и наш эксперт свяжется с вами, чтобы помочь подобрать решение и обсудить вашу ситуацию
-      </p>
-
-      <forms class="popup__form">
-        <input type="tel" class="input" name="params[phone][]" placeholder="+7(999) 999-99-99" required="">
-        <button type="submit" class="btn btn_consult popup__button popup-btn btn_accent">
-          <span>записаться</span>
-          <div class="point-mark"><span></span><span></span></div>
-        </button>
-        <label class="checkbox">
-          <input type="checkbox" checked="checked">
-          <span class="checkbox-mark"></span>
-          <span>Нажимая кнопку я соглашаюсь с <a href="#">политикой конфединциальности</a> и <a
-              href="#">пользовательским соглашением</a></span>
-        </label>
-      </forms>
-      <span class="popup__separation"></span>
-      <div class="popup__bottom">
-        <div class="popup__bottom-column">
-          <p>Или свяжитесь с нами самостоятельно</p>
-          <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+      <button class="close-popup">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+          <path stroke="#000" stroke-linecap="round" stroke-width="1.5" d="M14.8 7.8h-7m0 0h-7m7 0v7m0-7v-7"></path>
+        </svg>
+      </button>
+      <form class="form">
+        <div class="form__logo logo">
+          <picture class="logo__picture">
+            <source srcset="/assets/img/logo/logo.webp" type="image/webp">
+            <source srcset="/assets/img/logo/logo.svg" type="image/svg+xml">
+            <img src="/assets/img/logo/logo.png" alt="Логотип">
+          </picture>
+          <div class="logo__title">
+            <span>Дней</span>
+            <span>Реабилитационный центр</span>
+          </div>
         </div>
-        <div class="popup__bottom-column">
-          <a href="#" target="_blank" class="point-mark btn_social point-tg">
-          </a>
-          <a href="+799999999999" class="point-mark btn_social point-tel">
-          </a>
+        <div class="popup__title">
+          Оставьте заявку
+        </div>
+        <p class="form__desc popup__subtitle">
+          Оставьте ваш номер телефона, наши специалисты свяжутся с вами в течение 15 минут
+        </p>
+        <div class="form__inputs">
+          <input type="text" class="input" placeholder="Имя" name="params[text][]" required="">
+          <input type="tel" class="input" placeholder="Номер телефона" name="params[phone][]" required="">
+        </div>
+        <label class="checkbox">
+          <input type="checkbox" checked="checked" required="">
+          <span class="checkbox-mark"></span>
+          <span>Я соглашаюсь на переда чу персональных данных согласно <a href="/politika-konfidentsialnosti/"
+              rel="nofollow">политике конфиденциальности</a> и <a href="#">пользовательскому соглашению</a></span>
+        </label>
+        <button href="#" class="btn form__btn btn_primary btn_point">
+          <span>Отправить</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="popup" data-target="popup-city">
+  <div class="popup__body">
+    <div class="popup__content">
+      <button class="close-popup">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+          <path stroke="#000" stroke-linecap="round" stroke-width="1.5" d="M14.8 7.8h-7m0 0h-7m7 0v7m0-7v-7"></path>
+        </svg>
+      </button>
+      <div class="form">
+        <div class="form__logo logo">
+          <picture class="logo__picture">
+            <source srcset="/assets/img/logo/logo.webp" type="image/webp">
+            <source srcset="/assets/img/logo/logo.svg" type="image/svg+xml">
+            <img src="/assets/img/logo/logo.png" alt="Логотип">
+          </picture>
+          <div class="logo__title">
+            <span>Дней</span>
+            <span>Реабилитационный центр</span>
+          </div>
+        </div>
+        <div class="popup__title">
+          Выберите город
+        </div>
+        <div class="popup__search search">
+          <form action="" class="search__form">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none">
+              <path stroke="#2c2c2c" stroke-linecap="round" stroke-width="1.5"
+                d="m14 14.2 3.6 3.4m-1.2-9a7.8 7.8 0 1 1-15.7 0 7.8 7.8 0 0 1 15.7 0Z"></path>
+            </svg>
+            <input placeholder="Введите ваш город" type="text" class="search__input">
+          </form>
+          <div class="search__results">
+            <ul>
+              <li></li>
+            </ul>
+          </div>
+          <div class="search__offers">
+            <p class="search__offers__title">Популярные города:</p>
+            <ul>
+              <li class="active"><a href="#">Ростов-на-Дону</a></li>
+              <li><a href="#">Ростов-на-Дону</a></li>
+              <li><a href="#">Ростов-на-Дону</a></li>
+              <li><a href="#">Ростов-на-Дону</a></li>
+              <li><a href="#">Ростов-на-Дону</a></li>
+              <li><a href="#">Ростов-на-Дону</a></li>
+              <li><a href="#">Ростов-на-Дону</a></li>
+              <li><a href="#">Омск</a></li>
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="popup popup-responce" data-modal-ok="result-wrapper" data-modal-open="open active">
+  <div class="popup__body">
+    <div class="popup__content popup-change__content popup-change-response__content">
+      <button class="close-popup">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+          <path stroke="#000" stroke-linecap="round" stroke-width="1.5" d="M14.8 7.8h-7m0 0h-7m7 0v7m0-7v-7"></path>
+        </svg>
+      </button>
+
+      <div class="popup__pic">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none">
+          <rect width="60" height="60" x="10" y="10" fill="#16a34a" rx="30" />
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+            d="m31 42.07 4.58 4.43L49 33.5" />
+          <rect width="70" height="70" x="5" y="5" stroke="#16a34a" stroke-opacity=".2" stroke-width="10" rx="35" />
+        </svg>
+      </div>
+
+      <div class="result-wrapper popup-change-response__wrapper">
+        <h3>Заявка отправлена</h3>
+        <p>Специалисты свяжутся с вами в течение 15 минут</p>
+      </div>
+
+      <button class="btn close-popup popup__btn">
+        <span>Вернуться на сайт</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="popup popup-responce" data-modal-err="result-wrapper" data-modal-open="open active">
+  <div class="popup__body">
+    <div class="popup__content popup-change__content popup-change-response__content">
+      <button class="close-popup">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+          <path stroke="#000" stroke-linecap="round" stroke-width="1.5" d="M14.8 7.8h-7m0 0h-7m7 0v7m0-7v-7"></path>
+        </svg>
+      </button>
+
+      <div class="popup__pic">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none">
+          <rect width="60" height="60" x="10" y="10" fill="#dc2626" rx="30" />
+          <path stroke="#fff" stroke-linecap="round" stroke-width="2"
+            d="M40 51a11 11 0 1 1 0-22 11 11 0 0 1 0 22Zm-3.19-14.3v.09h-.11v-.09zm6.59 0v.09h-.1v-.09zm-7.21 8.2A4.5 4.5 0 0 1 40 42.76c1.6 0 3.01.86 3.81 2.16" />
+          <rect width="70" height="70" x="5" y="5" stroke="#dc2626" stroke-opacity=".2" stroke-width="10" rx="35" />
+        </svg>
+      </div>
+
+      <div class="result-wrapper popup-change-response__wrapper">
+        <h3>Ошибка отправления заявки</h3>
+        <p>Вы похожи на робота! Попробуйте
+          отправить заявку позже</p>
+      </div>
+
+      <button class="btn close-popup popup__btn">
+        <span>Вернуться на сайт</span>
+      </button>
     </div>
   </div>
 </div>
