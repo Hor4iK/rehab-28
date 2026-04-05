@@ -92,6 +92,7 @@
   border-radius: 30px;
   border: 1px solid $secondary-light-300-color;
   position: relative;
+  overflow: hidden;
 
   .section-title {
     margin-block-end: 80px;
@@ -100,12 +101,15 @@
   &__slider {
     max-width: 100%;
     width: 100%;
-    overflow: hidden;
     position: relative;
     padding-block-end: 5px;
   }
 
   &__item {
+    &.swiper-slide {
+      transition-property: transform, opacity;
+    }
+
     & > div {
       display: flex;
       align-items: center;
@@ -118,6 +122,10 @@
       border-radius: 20px;
       width: 480px;
       aspect-ratio: 4/3;
+    }
+
+    &:not(.swiper-slide-active) {
+      opacity: 0.6;
     }
   }
 

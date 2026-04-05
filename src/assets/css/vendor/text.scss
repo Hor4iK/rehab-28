@@ -324,7 +324,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
 
-      &> div {
+      & > div {
         padding-inline: 20px;
 
         &:not(:last-child) {
@@ -339,7 +339,7 @@
       @media (width<=700px) {
         grid-template-columns: repeat(1, 1fr);
 
-        &> div {
+        & > div {
           padding-inline: 0;
 
           &:not(:last-child) {
@@ -360,6 +360,30 @@
         grid-column-start: 1;
         grid-column-end: 2;
       }
+    }
+  }
+
+  .picture--big {
+    max-height: 400px;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-block-end: 32px;
+
+    @media (width<=24px) {
+      margin-block-end: 24px;
+    }
+  }
+
+  picture:not(.picture--big) {
+    max-width: 450px;
+    aspect-ratio: 16/9;
+    margin: 24px;
+    border-radius: 30px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -579,11 +603,16 @@
     }
 
     @media (width<=450px) {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       position: absolute;
       left: 24px;
       bottom: 24px;
+    }
+
+    @media (width<=390px) {
+      width: 80px;
+      height: 80px;
     }
 
     @media (width<=375px) {

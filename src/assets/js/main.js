@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -- AUTOMATIC CONTENT -- */
   const textAreas = document.querySelectorAll('.text');
   if (textAreas && textAreas.length > 0) {
+    let numb = 0;
     textAreas.forEach(text => {
+      numb++;
       const autocontentSection = text.querySelector('.autocontent');
 
       if (autocontentSection) {
@@ -48,8 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (jsScrollBlock.tagName == 'H2') {
               articleNavigationItem.classList.add('title-h2');
             }
-            jsScrollBlock.setAttribute('id', i)
-            articleNavigationLink.setAttribute('href', '#' + i);
+            jsScrollBlock.setAttribute('id', i + "_" + numb)
+            articleNavigationLink.setAttribute('href', '#' + i + "_" + numb);
             articleNavigationLink.textContent = ' ' + titleBlock;
             articleNavigationItem.append(articleNavigationLink);
             autocontentSection.querySelector('.autocontent__list ul').append(articleNavigationItem);
@@ -809,6 +811,31 @@ document.addEventListener('DOMContentLoaded', function () {
       navigation: {
         nextEl: doctorsSwiper.querySelector('.slider-sl__next'),
         prevEl: doctorsSwiper.querySelector('.slider-sl__prev'),
+      },
+    });
+  }
+
+  //Slider Articles
+  articlesSwiper = document.querySelector(".article-sl");
+  if (articlesSwiper) {
+    articlesSwiperCheck = new Swiper(articlesSwiper.querySelector('.article-sl__slider'), {
+      direction: 'horizontal',
+      slidesPerView: 1.02,
+      grabCursor: true,
+      spaceBetween: 10,
+      breakpoints: {
+        1400: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+      },
+      pagination: {
+        el: articlesSwiper.querySelector('.swiper-pagination'),
+        type: 'bullets',
+      },
+      navigation: {
+        nextEl: articlesSwiper.querySelector('.slider-sl__next'),
+        prevEl: articlesSwiper.querySelector('.slider-sl__prev'),
       },
     });
   }
