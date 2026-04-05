@@ -335,6 +335,12 @@
     gap: 8px;
     border-top: 1px solid $white-opacity-10-color;
     padding-block-start: 28px;
+    flex-wrap: wrap;
+
+    @media (width<=900px) {
+      gap: 4px;
+      padding-block-start: 20px;
+    }
   }
 
   .cont-badge__item {
@@ -352,38 +358,49 @@
       background-color: #fff;
       color: $black-color;
     }
+
+    @media (width<=900px) {
+      font-size: 12px;
+      padding: 12px 16px;
+      border-radius: 15px;
+    }
   }
 }
 
 .article {
+  picture {
+    img {
+      object-fit: contain;
+      object-position: center center;
+    }
+  }
+
   &__preview {
     padding-inline: $padding;
-    border-radius: 30px;
-    overflow: hidden;
     max-height: 600px;
     margin-block-end: 64px;
+
+    picture {
+      border-radius: 30px;
+      overflow: hidden;
+    }
 
     @media (width<=900px) {
       margin-block-end: 40px;
     }
 
     @media (width<=600px) {
-      aspect-ratio: 4/3;
+      aspect-ratio: 4.5/3;
 
       picture {
         height: 100%;
+        border-radius: 25px;
 
         img {
           height: 100%;
+          object-fit: cover;
         }
       }
-    }
-  }
-
-  picture {
-    img {
-      object-fit: contain;
-      object-position: center center;
     }
   }
 
@@ -447,7 +464,7 @@
     }
 
     .articles__item.swiper-slide {
-      &> div {
+      & > div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;

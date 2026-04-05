@@ -369,21 +369,37 @@
     overflow: hidden;
     margin-block-end: 32px;
 
-    @media (width<=24px) {
+    @media (width<=900px) {
       margin-block-end: 24px;
+      border-radius: 25px;
+      aspect-ratio: 4.5/3;
+
+      img {
+      height: 100%;
+      object-fit: cover;
+    }
     }
   }
 
-  picture:not(.picture--big) {
+  .text__content > picture:not(.picture--big,.reviewer-block__picture,.blockquote__picture) {
     max-width: 450px;
     aspect-ratio: 16/9;
     margin: 24px;
     border-radius: 30px;
     overflow: hidden;
+    float: right;
 
     img {
       height: 100%;
       object-fit: cover;
+    }
+
+    @media (width<=800px) {
+      max-width: 300px;
+      aspect-ratio: 4.5/3;
+      border-radius: 25px;
+      float: none;
+      margin: 24px 0;
     }
   }
 

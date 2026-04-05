@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (jsScrollBlock.tagName == 'H2') {
               articleNavigationItem.classList.add('title-h2');
             }
-            jsScrollBlock.setAttribute('id', i + "_" + numb)
-            articleNavigationLink.setAttribute('href', '#' + i + "_" + numb);
+            jsScrollBlock.setAttribute('id', numb + "_" + i)
+            articleNavigationLink.setAttribute('href', '#' + numb + "_" + i);
             articleNavigationLink.textContent = ' ' + titleBlock;
             articleNavigationItem.append(articleNavigationLink);
             autocontentSection.querySelector('.autocontent__list ul').append(articleNavigationItem);
