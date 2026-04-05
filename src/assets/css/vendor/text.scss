@@ -199,16 +199,29 @@
     border-left: 10px solid $primary-color;
     padding: 24px 24px 24px 32px;
     margin-block: 32px;
-    position: relative;
-    left: 4px;
     color: $black-color;
+
+    &.blockquote--green {
+      background-color: #16a34a1a;
+      border: 1px solid #16a34a1a;
+      border-left: 10px solid #16a34a;
+    }
+
+    &.blockquote--red {
+      background-color: #dc26261a;
+      border: 1px solid #dc26261a;
+      border-left: 10px solid #dc2626;
+    }
 
     & > P {
       position: relative;
       z-index: 2;
+      font-weight: 500;
     }
 
     @media (width<=900px) {
+      padding: 24px 24px 24px 22px;
+      border-radius: 25px;
     }
   }
 
@@ -260,6 +273,92 @@
       .autocontent {
         order: 1;
         margin-block-end: 40px;
+      }
+    }
+  }
+
+  .block-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-block-end: 30px;
+
+    & > div {
+      border-radius: 20px;
+      border: 1px solid $primary-light-200-color;
+      background: url(../img/sections/policy-bg.webp), $primary-light-100-color;
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-size: cover;
+      padding: 24px;
+      position: relative;
+
+      &:nth-child(5) {
+        background: $primary-light-100-color;
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+
+      &:has(.block-grid__columns) > p:first-child {
+        font-size: clamp(1.125rem, 1.1018rem + 0.531vw, 1.5rem);
+      }
+
+      p:first-child {
+        font-size: clamp(1rem, 0.9845rem + 0.354vw, 1.25rem);
+        font-weight: 600;
+        margin-block-end: 16px;
+      }
+
+      ul li:not(:last-child),
+      ol li:not(:last-child) {
+        margin-block-end: 16px;
+      }
+
+      @media (width<=900px) {
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+
+    &__columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      &> div {
+        padding-inline: 20px;
+
+        &:not(:last-child) {
+          border-right: 1px solid $primary-light-200-color;
+        }
+
+        p:not(:first-of-type, :last-of-type) {
+          margin-block-end: 16px;
+        }
+      }
+
+      @media (width<=700px) {
+        grid-template-columns: repeat(1, 1fr);
+
+        &> div {
+          padding-inline: 0;
+
+          &:not(:last-child) {
+            border-right: none;
+            border-bottom: 1px solid $primary-light-200-color;
+            padding-block-end: 16px;
+            margin-block-end: 16px;
+          }
+        }
+      }
+    }
+
+    @media (width<=700px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 8px;
+
+      & > div:nth-child(5) {
+        grid-column-start: 1;
+        grid-column-end: 2;
       }
     }
   }

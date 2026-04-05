@@ -1,0 +1,64 @@
+.policy {
+    .intro__top {
+    max-width: 620px;
+  }
+
+  &__display {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 28px;
+
+    @media (width<=1400px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__advs {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+  }
+
+  &__adv {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: start;
+    padding: 24px;
+    padding-inline-end: 15px;
+    border-radius: 20px;
+    background-color: $white-opacity-10-color;
+    background-image: url(../img/sections/reviews-adv-bg.webp);
+    background-repeat: no-repeat;
+    border: 1px solid $white-opacity-10-color;
+    background-position: center right;
+    background-size: contain;
+    color: #fff;
+
+    p {
+      &:first-child {
+        line-height: 1;
+        font-size: clamp(1rem, 0.9845rem + 0.354vw, 1.25rem);
+        margin-block-end: 12px;
+        font-weight: 500;
+      }
+      &:last-child {
+        font-size: clamp(0.875rem, 0.8673rem + 0.177vw, 1rem);
+        color: $white-opacity-80-color;
+      }
+    }
+
+    @media (width<=900px) {
+      padding: 16px;
+
+      p {
+        &:last-child {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
