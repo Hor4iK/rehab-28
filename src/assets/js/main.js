@@ -717,7 +717,7 @@ document.addEventListener('DOMContentLoaded', function () {
           converseCard.classList.toggle("converse-card_hide");
         }
         const converseBtn = document.querySelector(".converse-card__button_plus");
-        if(converseBtn) {
+        if (converseBtn) {
           converseBtn.classList.toggle("converse-card__button--active");
         }
       })
@@ -748,6 +748,35 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       pagination: {
         el: metodicSwiper.querySelector('.swiper-pagination'),
+        type: 'bullets',
+      }
+    });
+  }
+
+  //Slider ovr__qq on the doctor page
+  ovrQQSwiper = document.querySelector(".ovr__qq");
+  if (ovrQQSwiper) {
+    ovrQQSwiperCheck = new Swiper(ovrQQSwiper.querySelector('.ovr__qq__list'), {
+      direction: 'horizontal',
+      slidesPerView: 1.02,
+      grabCursor: true,
+      spaceBetween: 8,
+      breakpoints: {
+        500: {
+          slidesPerView: 2,
+          spaceBetween: 4
+        },
+        800: {
+          slidesPerView: 3,
+          spaceBetween: 8
+        },
+        1400: {
+          slidesPerView: 4,
+          spaceBetween: 10
+        }
+      },
+      pagination: {
+        el: ovrQQSwiper.querySelector('.swiper-pagination'),
         type: 'bullets',
       }
     });
@@ -933,6 +962,37 @@ document.addEventListener('DOMContentLoaded', function () {
         if (window.innerWidth > 700 && reviewsCheck) {
           reviewsCheck.destroy(true, true);
           reviewsCheck = false;
+          reviewsList.classList.remove('swiper-wrapper');
+        }
+      })
+    })
+
+
+  }
+
+  //Slider diplomas on the doctor turn on when mobile 700
+  diplomas = document.querySelector(".diplomas");
+  if (diplomas) {
+    const reviewsList = diplomas.querySelector('.diplomas__list');
+    diplomasCheck = false;
+    ['resize', 'load'].forEach((event) => {
+      window.addEventListener(event, function () {
+        if (window.innerWidth <= 700 && !diplomasCheck) {
+          reviewsList.classList.add('swiper-wrapper');
+          diplomasCheck = new Swiper(diplomas.querySelector('.diplomas__slider'), {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            grabCursor: true,
+            spaceBetween: 8,
+            pagination: {
+              el: diplomas.querySelector('.swiper-pagination'),
+              type: 'bullets',
+            },
+          });
+        }
+        if (window.innerWidth > 700 && diplomasCheck) {
+          diplomasCheck.destroy(true, true);
+          diplomasCheck = false;
           reviewsList.classList.remove('swiper-wrapper');
         }
       })
