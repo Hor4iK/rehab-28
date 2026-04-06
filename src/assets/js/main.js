@@ -786,6 +786,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  //Slider Gallery
+  gallerySwiper = document.querySelector(".gallery-sl");
+  if (gallerySwiper) {
+    gallerySwiperCheck = new Swiper(gallerySwiper.querySelector('.gallery-sl__slider'), {
+      direction: 'horizontal',
+      slidesPerView: 1.02,
+      grabCursor: true,
+      spaceBetween: 10,
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+          spaceBetween: 10
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 15
+        },
+        1400: {
+          slidesPerView: 4.05,
+          spaceBetween: 20
+        }
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+      navigation: {
+        nextEl: gallerySwiper.querySelector('.slider-sl__next'),
+        prevEl: gallerySwiper.querySelector('.slider-sl__prev'),
+      },
+    });
+  }
+
   //Slider Doctors
   doctorsSwiper = document.querySelector(".doctor-sl");
   if (doctorsSwiper) {
